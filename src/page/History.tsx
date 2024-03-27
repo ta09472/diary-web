@@ -1,0 +1,153 @@
+import HistoryCard from '../components/HistoryCard'
+import instance from '../lib/axios'
+import { Diary } from '../schema/Diary'
+import {
+  filterData,
+  groupByMonth,
+  separateByObject
+} from '../util/groupByMonth'
+import { getLocalStorage } from '../util/localStorage'
+import { useQuery } from '@tanstack/react-query'
+import {
+  Button,
+  Divider,
+  Empty,
+  Input,
+  Segmented,
+  Spin
+} from 'antd'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+const options = [
+  {
+    value: 'lately',
+    label: '오래된 순'
+  },
+  {
+    value: 'newest',
+    label: '최신 순'
+  }
+]
+
+const { Search } = Input
+
+export default function History(): React.ReactElement {
+  const navigate = useNavigate()
+  const [value, setValue] = useState<string | number>(
+    'newest'
+  )
+  const [input, setInput] = useState('')
+
+  const user = getLocalStorage('user') ?? {
+    name: '',
+    email: ''
+  }
+
+  const { data, isLoading } = useQuery({
+    queryKey: [user?.email],
+    queryFn: () =>
+      instance.get('/myHistory', {
+        params: {
+          email: user.email
+        }
+      })
+  })
+
+  if (isLoading)
+    return (
+      <div className="p-2 w-[52rem] h-[40rem] flex flex-col">
+        <div className="flex justify-between gap-2 mb-2">
+          <Segmented
+            options={options}
+            value={value}
+            onChange={setValue}
+          />
+          <Search
+            variant="filled"
+            placeholder="날짜 또는 키워드를 입력하세요."
+            allowClear
+            enterButton
+            value={input}
+            onChange={(e) =>
+              setInput(e.currentTarget.value)
+            }
+          />
+        </div>
+        <Spin fullscreen />
+      </div>
+    )
+
+  const history: Diary[] =
+    JSON.parse(data?.data?.res ?? '{}').history ?? []
+
+  const historyWithState =
+    value === 'lately' ? history : history.toReversed()
+  const groupedData = groupByMonth(historyWithState)
+  const separatedData = separateByObject(groupedData)
+  const filteredData = filterData(separatedData, input)
+  const isSearchResultEmpty =
+    Object.keys(filteredData).length === 0
+  const isEmpty = !(!input && isSearchResultEmpty)
+
+  return (
+    <div className="p-2 w-[52rem] h-[40rem] flex flex-col">
+      <div className="flex justify-between gap-2 mb-2">
+        <Segmented
+          options={options}
+          value={value}
+          onChange={setValue}
+        />
+        <Search
+          variant="filled"
+          placeholder="날짜 또는 키워드를 입력하세요."
+          allowClear
+          enterButton
+          value={input}
+          onChange={(e) => setInput(e.currentTarget.value)}
+        />
+      </div>
+      <div className=" overflow-scroll">
+        {!isSearchResultEmpty ? (
+          Object.entries(filteredData).map((v) => (
+            <div key={v[0]}>
+              <Divider orientation="left" key={v[0]}>
+                {v[0].replace('_', ' ')}
+              </Divider>
+              <div className="grid grid-cols-3 gap-2 ">
+                {v[1]?.map((v, index) => (
+                  <HistoryCard
+                    loading={isLoading}
+                    key={index}
+                    data={v}
+                    id={index}
+                  />
+                ))}
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="p-40 ">
+            <Empty
+              description={
+                isEmpty
+                  ? '검색 결과가 없어요.'
+                  : '아직 일기를 쓰지 않았어요!일기를 써보러 갈까요?'
+              }
+            >
+              {!isEmpty ? (
+                <Button
+                  type="primary"
+                  className="bg-blue-500"
+                  onClick={() => navigate('/diary')}
+                >
+                  일기 쓰러 가기
+                </Button>
+              ) : null}
+            </Empty>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
