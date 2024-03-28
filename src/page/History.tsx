@@ -82,7 +82,7 @@ export default function History(): React.ReactElement {
     JSON.parse(data?.data?.res ?? '{}').history ?? []
 
   const historyWithState =
-    value === 'lately' ? history : history.toReversed()
+    value === 'lately' ? history : [...history].reverse()
   const groupedData = groupByMonth(historyWithState)
   const separatedData = separateByObject(groupedData)
   const filteredData = filterData(separatedData, input)

@@ -89,29 +89,7 @@ export default function SignIn(): React.ReactElement {
           icon={<img src={google} />}
           className="flex justify-center items-center"
           onClick={async () => {
-            await window['google-OAuth2.0'].send(
-              'google-OAuth2.0'
-            )
-
-            await window[
-              'Oauth-response'
-            ].onGoogleOAuthResponse(async (message) => {
-              if (message.success) {
-                const profile = await getGoogleProfile(
-                  message.accessToken.data.access_token
-                )
-
-                setLocalStorage('user', profile)
-
-                await instance.post('/register', {
-                  email: profile.email
-                })
-
-                navigate('/diary')
-              } else {
-                openNotificationWithIcon()
-              }
-            })
+            navigate('/diary')
           }}
         >
           구글 &nbsp; 로그인

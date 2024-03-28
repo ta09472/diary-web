@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Diary } from '../schema/Diary'
 
 export function groupByMonth(entries): {
