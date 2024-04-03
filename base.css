@@ -4,12 +4,12 @@
 
 @font-face {
   font-family: 'HakgyoansimKkokkomaR';
-  src: url('./fonts/HakgyoansimKkokkomaR.ttf')
+  src: url('./fonts/HakgyoansimKkokkomaR.woff')
     format('truetype');
 }
 @font-face {
   font-family: 'Chilgok_Kaj';
-  src: url('./fonts/Chilgok_Kaj.ttf') format('truetype');
+  src: url('./fonts/Chilgok_Kaj.woff') format('truetype');
 }
 
 /* :root {
