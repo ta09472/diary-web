@@ -12,7 +12,6 @@ function App(): JSX.Element {
     <>
       <Navigation />
       <Routes>
-        {/* <Route path="/" Component={Redirect} /> */}
         <Route path="/" Component={SignIn} />
         <Route path="/diary" Component={Diary} />
         <Route path="/history" Component={History} />
