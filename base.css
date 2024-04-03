@@ -5,11 +5,11 @@
 @font-face {
   font-family: 'HakgyoansimKkokkomaR';
   src: url('./fonts/HakgyoansimKkokkomaR.woff')
-    format('truetype');
+    format('woff');
 }
 @font-face {
   font-family: 'Chilgok_Kaj';
-  src: url('./fonts/Chilgok_Kaj.woff') format('truetype');
+  src: url('./fonts/Chilgok_Kaj.woff') format('woff');
 }
 
 /* :root {
