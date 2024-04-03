@@ -11,15 +11,9 @@ import {
   UserOutlined
 } from '@ant-design/icons'
 
-import { useNavigate } from 'react-router-dom'
-
-import { setLocalStorage } from '../util/localStorage'
-import instance from '../lib/axios'
 import { googleConfig } from '../hooks/sigininWithOauthGoogle'
-import { useEffect } from 'react'
 
 export default function SignIn(): React.ReactElement {
-  const navigate = useNavigate()
   const [api, contextHolder] =
     notification.useNotification()
 
@@ -89,17 +83,8 @@ export default function SignIn(): React.ReactElement {
           block
           icon={<img src={google} />}
           className="flex justify-center items-center"
-          onClick={async () => {
-            // // google에 로그인
+          onClick={() => {
             window.location.href = googleConfig.authUrl
-            // // // code 추출
-            const params = new URLSearchParams(
-              window.location.search
-            )
-            for (const [key, value] of params) {
-              console.log(`${key}: ${value}`)
-              localStorage.setItem(key, value)
-            }
           }}
         >
           구글 &nbsp; 로그인
