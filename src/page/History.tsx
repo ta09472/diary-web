@@ -1,6 +1,7 @@
 import HistoryCard from '../components/HistoryCard'
 import instance from '../lib/axios'
 import { Diary } from '../schema/Diary'
+import { User } from '../schema/User'
 import {
   filterData,
   groupByMonth,
@@ -39,10 +40,11 @@ export default function History(): React.ReactElement {
   )
   const [input, setInput] = useState('')
 
-  const user = getLocalStorage('user') ?? {
-    name: '',
+  const user = (getLocalStorage('user') ?? {
+    familyName: '',
+    givenName: '',
     email: ''
-  }
+  }) as User
 
   const { data, isLoading } = useQuery({
     queryKey: [user?.email],
