@@ -30,7 +30,8 @@ export default function Navigation(): React.ReactElement {
     return ''
   }
 
-  if (pathname === '/') return <></>
+  if (pathname === '/' || pathname === '/pending')
+    return <></>
 
   return (
     <>

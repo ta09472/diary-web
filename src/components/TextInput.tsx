@@ -8,6 +8,7 @@ import instance from '../lib/axios'
 import { getLocalStorage } from '../util/localStorage'
 
 import { useNavigate } from 'react-router-dom'
+import { User } from '../schema/User'
 
 const { TextArea } = Input
 
@@ -22,7 +23,7 @@ export default function TextInput({
   weather,
   date
 }: Props): React.ReactElement {
-  const user = getLocalStorage('user')
+  const user = getLocalStorage('user') as User
   const audioRef = useRef<HTMLAudioElement>(null)
   const [timeoutId, setTimeoutId] = useState<
     string | number | null | NodeJS.Timeout
@@ -38,7 +39,7 @@ export default function TextInput({
     mutationFn: async (input: string) =>
       await instance.post('/chatgpt', {
         message: input,
-        name: user?.name,
+        name: user?.givenName,
         email: user?.email,
         weather,
         date
@@ -138,7 +139,7 @@ export default function TextInput({
         className="p-2 text-3xl text-gray-700 font-[HakgyoansimKkokkomaR]"
         // className="p-2 text-3xl text-gray-700"
         variant="borderless"
-        placeholder={`${user?.name ?? ''}야! 오늘 너의 하루는 어땠니?`}
+        placeholder={`${user?.givenName ?? ''}야! 오늘 너의 하루는 어땠니?`}
         onKeyDown={(e) => handleKeyDown(e)}
         ref={textareaRef}
         onInput={(e) => setInput(e.currentTarget.value)}

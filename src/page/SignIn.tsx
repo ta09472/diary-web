@@ -16,6 +16,7 @@ import { useNavigate } from 'react-router-dom'
 import { setLocalStorage } from '../util/localStorage'
 import instance from '../lib/axios'
 import { googleConfig } from '../hooks/sigininWithOauthGoogle'
+import { useEffect } from 'react'
 
 export default function SignIn(): React.ReactElement {
   const navigate = useNavigate()
@@ -91,21 +92,14 @@ export default function SignIn(): React.ReactElement {
           onClick={async () => {
             // // google에 로그인
             window.location.href = googleConfig.authUrl
-
-            // // code 추출
+            // // // code 추출
             const params = new URLSearchParams(
-              window.location.href
+              window.location.search
             )
-            console.log(params)
-            // const code = params.get('code')
-            // // 이거 왜 null임;;
-            // // 로그인 후 백엔드에 code 보내서 access_token 받아오기
-            // const response = await instance.post(
-            //   '/login/google',
-            //   {
-            //     code
-            //   }
-            // )
+            for (const [key, value] of params) {
+              console.log(`${key}: ${value}`)
+              localStorage.setItem(key, value)
+            }
           }}
         >
           구글 &nbsp; 로그인
