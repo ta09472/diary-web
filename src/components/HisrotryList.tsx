@@ -57,7 +57,7 @@ export default function HistoryList() {
               <Divider orientation="left" key={v[0]}>
                 {v[0].replace('_', ' ')}
               </Divider>
-              <div className="grid grid-cols-3 gap-2 ">
+              <div className="grid grid-cols-1 gap-2 ">
                 {v[1]?.map((v, index) => (
                   <HistoryCard
                     loading={isLoading}

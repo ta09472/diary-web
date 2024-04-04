@@ -6,19 +6,20 @@ const { Search } = Input
 const options = [
   {
     label: (
-      <div className="w-[4rem] h-[2rem] text-[1.2rem] lg:w-[1rem] lg:h-[1rem] lg:text-[1rem] ">
-        <div>오래된 순</div>
-      </div>
+      //   <div className="w-[4rem] h-[2rem] text-[1.2rem] lg:w-[1rem] lg:h-[1rem] lg:text-[1rem] ">
+      <div>최신 순</div>
+      //   </div>
     ),
-    value: 'lately'
+    value: 'newest'
   },
   {
     label: (
-      <div className="w-[4rem] h-[2rem] text-[1.2rem] lg:w-[1rem] lg:h-[1rem] lg:text-[1rem] ">
-        <div>최신 순</div>
-      </div>
+      <div>오래된 순</div>
+      //   <div className="w-[4rem] h-[2rem] text-[1.2rem] lg:w-[1rem] lg:h-[1rem] lg:text-[1rem] ">
+
+      //   </div>
     ),
-    value: 'newest'
+    value: 'lately'
   }
 ]
 
@@ -29,14 +30,14 @@ export default function SearchBar() {
   const [input, setInput] = useState('')
 
   return (
-    <div className="flex justify-between gap-2 mb-2 w-full">
+    <div className="flex justify-between gap-2 mb-2 w-full h-[4rem]">
       <Segmented
         options={options}
         value={value}
         onChange={setValue}
       />
       <Search
-        className="h-[5rem] text-[2rem] lg:h-[2rem] lg:text-[1rem]"
+        size="large"
         variant="filled"
         placeholder="날짜 또는 키워드를 입력하세요."
         allowClear
