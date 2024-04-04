@@ -67,11 +67,11 @@ export default function Navigation(): React.ReactElement {
           </Button>
           <Button
             className="h-full p-2"
-            onClick={showDrawer}
+            onClick={() => navigate('/diary')}
             type="text"
           >
             <div className="flex items-center justify-center w-full h-full">
-              {open === true ? (
+              {pathname === '/diary' ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -139,7 +139,7 @@ export default function Navigation(): React.ReactElement {
             </div>
           </Button>
         </div>
-        <Drawer
+        {/* <Drawer
           title={
             <div className=" text-[3rem] lg:text-3xl font-sans text-gray-900 font-semibold">
               오늘의 날씨는 어땠나요?
@@ -184,7 +184,7 @@ export default function Navigation(): React.ReactElement {
               className="text-5xl"
             />
           ) : null}
-        </Drawer>
+        </Drawer> */}
       </div>
     </>
   )

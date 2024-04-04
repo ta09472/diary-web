@@ -1,11 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
-import Diary from './page/Diary'
+import Home from './page/Home'
 import SignIn from './page/SignIn'
 import History from './page/History'
 import Navigation from './components/Nav'
 import HistoryDetail from './page/HistoryDetail'
 import LoginPending from './page/LoginPending'
 import Profile from './page/Profile'
+import Diary from './page/Diary'
 
 function App(): JSX.Element {
   // 로그인 검증해서 로그인 페이지로 리다이렉션
@@ -16,9 +17,9 @@ function App(): JSX.Element {
       <Routes>
         <Route path="/login" Component={SignIn} />
         <Route path="/pending" Component={LoginPending} />
-        <Route path="/" Component={Diary} />
+        <Route path="/" Component={Home} />
         <Route path="/profile" Component={Profile} />
-        {/* <Route path="/history" Component={History} /> */}
+        <Route path="/diary" Component={Diary} />
         <Route
           path="/history/:id"
           Component={HistoryDetail}

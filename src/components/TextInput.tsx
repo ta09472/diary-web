@@ -16,12 +16,16 @@ interface Props {
   textareaRef: React.RefObject<HTMLTextAreaElement>
   weather: string
   date: string
+  input: string
+  handleInput: (v: string) => void
 }
 
 export default function TextInput({
   textareaRef,
   weather,
-  date
+  date,
+  input,
+  handleInput
 }: Props): React.ReactElement {
   const user = getLocalStorage('user') as User
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -30,7 +34,6 @@ export default function TextInput({
   >(null)
   const navigate = useNavigate()
 
-  const [input, setInput] = useState('')
   const [modal, contextHolder] = Modal.useModal()
   const [messageApi, messageContextHolder] =
     message.useMessage()
@@ -47,7 +50,7 @@ export default function TextInput({
     onSuccess: () => {
       messageApi.success('일기가 성공적으로 제출되었어요!')
       setTimeout(() => {
-        navigate('/history')
+        navigate('/')
       }, 1000)
     }
   })
@@ -136,14 +139,15 @@ export default function TextInput({
     <>
       <TextArea
         autoSize
-        className="p-2 text-3xl text-gray-700 font-[HakgyoansimKkokkomaR]"
+        className="p-2 text-4xl text-gray-700 font-[HakgyoansimKkokkomaR] overflow-scroll"
         // className="p-2 text-3xl text-gray-700"
         variant="borderless"
         placeholder={`${user?.givenName ?? ''}야! 오늘 너의 하루는 어땠니?`}
         onKeyDown={(e) => handleKeyDown(e)}
         ref={textareaRef}
-        onInput={(e) => setInput(e.currentTarget.value)}
+        onInput={(e) => handleInput(e.currentTarget.value)}
         value={input}
+        rows={8}
       />
       <audio ref={audioRef} src={audio} />
       {contextHolder}
