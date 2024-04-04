@@ -1,5 +1,5 @@
 import HistoryCard from '../components/HistoryCard'
-import SearchBar from '../components/SearchBar'
+import bird from '../resources/images/bird.svg'
 import instance from '../lib/axios'
 import { Diary } from '../schema/Diary'
 import { User } from '../schema/User'
@@ -70,21 +70,31 @@ export default function HistoryList() {
             </div>
           ))
         ) : (
-          <div className="p-40 ">
+          <div className="p-40">
             <Empty
+              image={null}
               description={
-                isEmpty
-                  ? '검색 결과가 없어요.'
-                  : '아직 일기를 쓰지 않았어요!일기를 써보러 갈까요?'
+                isEmpty ? (
+                  <div className="text-5xl font-semibold lg:text-[1rem] ">
+                    검색 결과가 없어요.
+                  </div>
+                ) : (
+                  <div className="text-4xl text-gray-700 lg:text-[1.5rem]">
+                    아직 일기를 쓰지 않았어요!
+                    <br />
+                    일기를 써보러 갈까요?
+                  </div>
+                )
               }
             >
               {!isEmpty ? (
                 <Button
                   type="primary"
-                  className="bg-blue-500"
+                  block
+                  className=" text-[2.6rem] h-[6rem] lg:h-[3rem] lg:text-[1.2rem] bg-black font-semibold mt-2"
                   onClick={() => navigate('/diary')}
                 >
-                  일기 쓰러 가기
+                  일기 쓰기
                 </Button>
               ) : null}
             </Empty>

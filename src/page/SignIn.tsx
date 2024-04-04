@@ -40,23 +40,23 @@ export default function SignIn(): React.ReactElement {
 
         <Input
           variant="filled"
-          className="h-[5rem] text-[2rem] lg:h-[2rem] lg:text-[1rem]"
+          className="h-[6rem] text-[2.2rem] lg:h-[2rem] lg:text-[1rem]"
           prefix={<UserOutlined className="lg:p-0 p-1" />}
           placeholder="이메일"
         />
         <Input
           variant="filled"
-          className="h-[5rem] text-[2rem] lg:h-[2rem] lg:text-[1rem]"
+          className="h-[6rem] text-[2.2rem] lg:h-[2rem] lg:text-[1rem]"
           placeholder="비밀번호"
           prefix={<LockOutlined className="lg:p-0 p-1" />}
         />
-        <Button className="text-[2.4rem] h-[5rem] lg:h-[2rem] lg:text-[0.8rem]">
+        <Button className="text-[2.4rem] h-[6rem] lg:h-[2rem] lg:text-[0.8rem]">
           <div className=" text-gray-700 ">로그인</div>
         </Button>
 
         <Button
           type="link"
-          className=" place-self-end p-0 text-[1.6rem] lg:text-[0.8rem]"
+          className=" place-self-end p-0 text-[1.8rem] lg:text-[1rem]"
         >
           아직 계정이 없으신가요?
         </Button>
@@ -77,7 +77,7 @@ export default function SignIn(): React.ReactElement {
               className="w-[2rem] lg:h-[1rem] lg:w-[1rem]"
             />
           }
-          className="flex justify-center items-center bg-[#fee500] p-4 text-[#181600] text-[2.2rem] h-[5rem] lg:h-[1rem] lg:text-[1rem]"
+          className="flex justify-center items-center bg-[#fee500] p-4 text-[#181600] text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem]"
         >
           카카오 로그인
         </Button>
@@ -90,7 +90,7 @@ export default function SignIn(): React.ReactElement {
               className="w-[2rem] lg:h-[1rem] lg:w-[1rem]"
             />
           }
-          className="flex justify-center items-center bg-[#01c75b] p-4 text-white text-[2.2rem] h-[5rem] lg:h-[1rem] lg:text-[1rem]"
+          className="flex justify-center items-center bg-[#01c75b] p-4 text-white text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem]"
         >
           네이버 로그인
         </Button>
@@ -102,10 +102,10 @@ export default function SignIn(): React.ReactElement {
               className="w-[2.4rem] lg:h-[1rem] lg:w-[1rem]"
             />
           }
-          className="flex justify-center items-center p-4 text-black text-[2.2rem] h-[5rem] lg:h-[1rem] lg:text-[1rem]"
+          className="flex justify-center items-center p-4 text-black text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem]"
           onClick={() => {
-            // navigate('/diary')
-            window.location.href = googleConfig.authUrl
+            navigate('/diary')
+            // window.location.href = googleConfig.authUrl
           }}
         >
           &nbsp; 구글 로그인

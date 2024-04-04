@@ -44,7 +44,7 @@ export default function Navigation(): React.ReactElement {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-[3rem] h-[3rem] lg:w-[2rem] lg:h-[2rem]"
+              className="w-[4rem] h-[4rem] lg:w-[2rem] lg:h-[2rem] text-gray-700"
             >
               <path
                 strokeLinecap="round"
@@ -68,9 +68,25 @@ export default function Navigation(): React.ReactElement {
         onClose={onClose}
         open={open}
         placement="left"
-        width={'35rem'}
+        width={'40rem'}
+        closeIcon={
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-[4rem] h-[4rem] lg:w-[2rem] lg:h-[2rem] text-gray-700"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+        }
       >
-        <nav className="text-5xl lg:text-xl">
+        <nav className="text-[3rem] lg:text-xl">
           <ul>
             <li className={getCurrentPathname('/diary')}>
               <Link to="/diary" onClick={onClose}>
