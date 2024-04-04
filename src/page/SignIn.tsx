@@ -106,7 +106,7 @@ export default function SignIn(): React.ReactElement {
           }
           className="flex justify-center items-center p-4 text-black text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem]"
           onClick={() => {
-            navigate('/diary')
+            navigate('/')
             // window.location.href = googleConfig.authUrl
           }}
         >

@@ -3,10 +3,10 @@ import Circle from './Circle'
 import audio from '../resources/sounds/Check_Pencil.mp3'
 
 interface Props {
-  weather: string
+  weather: string | null
   label: ReactElement
   isSelected: boolean
-  currentWeather: string
+  currentWeather: string | null
   handleClick?: (value: string, isSelected: boolean) => void
 }
 

@@ -1,13 +1,10 @@
 import dayjs from 'dayjs'
 import 'dayjs/locale/ko' // 한국어 로케일
 
-import Weather, {
-  weatherOptions
-} from '../components/Weather'
+import { weatherOptions } from '../components/Weather'
 
-import TextInput from '../components/TextInput'
 import { useRef, useState } from 'react'
-import { Card } from 'antd'
+
 import SearchBar from '../components/SearchBar'
 import HistoryList from '../components/HisrotryList'
 

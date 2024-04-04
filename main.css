@@ -3,6 +3,15 @@
 html {
   font-size: 16px;
 }
+
+.custom-drawer {
+  bottom: var(
+    --safe-area-bottom
+  ) !important; /* 하단 안전 영역 고려 */
+  height: calc(
+    100% - var(--safe-area-bottom)
+  ) !important; /* 전체 높이에서 하단 안전 영역 제외 */
+}
 // Ant Design CSS
 /* 
 body {

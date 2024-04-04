@@ -61,7 +61,7 @@ export const weatherOptions = [
 
 interface Props {
   textareaRef: React.RefObject<HTMLTextAreaElement>
-  weather: string
+  weather: string | null
   setWeather: (v: string) => void
 }
 
@@ -79,7 +79,7 @@ export default function Weather({
   }
 
   return (
-    <div className="gap-4 px-2 min-h-20 flex justify-evenly items-center">
+    <div className="gap-4 px-2 min-h-[6rem] flex justify-evenly items-center">
       {weatherOptions.map(({ value, label }) => (
         <WeatherButton
           key={value}
