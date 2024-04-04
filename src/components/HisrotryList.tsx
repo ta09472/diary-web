@@ -36,6 +36,7 @@ export default function HistoryList() {
         }
       })
   })
+
   const history: Diary[] =
     JSON.parse(data?.data?.res ?? '{}').history ?? []
 

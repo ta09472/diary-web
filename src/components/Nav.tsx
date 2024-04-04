@@ -35,7 +35,8 @@ export default function Navigation(): React.ReactElement {
 
   return (
     <>
-      <div className="w-full flex justify-between pl-[1.8rem] pt-4">
+      {/* <div className="w-full flex justify-between pl-[1.8rem] pt-4"> */}
+      <div className="fixed inset-x-0 bottom-0 pb-safe bg-white shadow-md flex justify-between items-center z-10">
         <Button
           icon={
             <svg

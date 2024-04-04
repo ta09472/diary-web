@@ -12,10 +12,13 @@ export default {
         darkSlateGray: '#525252',
         darkCharcoal: '#414141',
         darkCrimsonRed: '#CA3E47'
+      },
+      padding: {
+        safe: 'env(safe-area-inset-bottom)'
       }
     }
-  },
-  plugins: []
+  }
+
   // corePlugins: {
   //   preflight: false
   // }

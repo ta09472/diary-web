@@ -50,8 +50,10 @@ export default function SignIn(): React.ReactElement {
           placeholder="비밀번호"
           prefix={<LockOutlined className="lg:p-0 p-1" />}
         />
-        <Button className="text-[2.4rem] h-[6rem] lg:h-[2rem] lg:text-[0.8rem]">
-          <div className=" text-gray-700 ">로그인</div>
+        <Button className="text-[2.4rem] h-[6rem] lg:h-[2rem] lg:text-[0.8rem] bg-black ">
+          <div className=" text-gray-100 font-semibold ">
+            로그인
+          </div>
         </Button>
 
         <Button
