@@ -35,9 +35,24 @@ export default function Navigation(): React.ReactElement {
 
   return (
     <>
-      <div className="w-full flex justify-between">
+      <div className="w-full flex justify-between pl-8 pt-4">
         <Button
-          icon={<MenuOutlined />}
+          icon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-[3rem] h-[3rem] lg:w-[2rem] lg:h-[2rem]"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          }
           onClick={showDrawer}
           type="text"
         />
@@ -53,20 +68,20 @@ export default function Navigation(): React.ReactElement {
         onClose={onClose}
         open={open}
         placement="left"
-        width={'15rem'}
+        width={'35rem'}
       >
-        <nav className="text-xl">
+        <nav className="text-5xl lg:text-xl">
           <ul>
             <li className={getCurrentPathname('/diary')}>
               <Link to="/diary" onClick={onClose}>
-                일기
+                홈
               </Link>
             </li>
-            <li className={getCurrentPathname('/history')}>
+            {/* <li className={getCurrentPathname('/history')}>
               <Link to="/history" onClick={onClose}>
                 기록
               </Link>
-            </li>
+            </li> */}
             {/* <li>
               <Link to="/settings" onClick={onClose}>
                 설정

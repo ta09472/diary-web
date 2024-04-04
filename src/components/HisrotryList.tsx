@@ -10,20 +10,11 @@ import {
 } from '../util/groupByMonth'
 import { getLocalStorage } from '../util/localStorage'
 import { useQuery } from '@tanstack/react-query'
-import {
-  Button,
-  Divider,
-  Empty,
-  Input,
-  Segmented,
-  Spin
-} from 'antd'
+import { Button, Divider, Empty } from 'antd'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const { Search } = Input
-
-export default function History(): React.ReactElement {
+export default function HistoryList() {
   const navigate = useNavigate()
   const [value, setValue] = useState<string | number>(
     'newest'
@@ -45,17 +36,6 @@ export default function History(): React.ReactElement {
         }
       })
   })
-
-  if (isLoading)
-    return (
-      <div className="p-2 w-[52rem] h-[40rem] flex flex-col">
-        <div className="flex justify-between gap-2 mb-2">
-          <SearchBar />
-        </div>
-        <Spin fullscreen />
-      </div>
-    )
-
   const history: Diary[] =
     JSON.parse(data?.data?.res ?? '{}').history ?? []
 
@@ -69,10 +49,7 @@ export default function History(): React.ReactElement {
   const isEmpty = !(!input && isSearchResultEmpty)
 
   return (
-    <div className="p-2 w-[52rem] h-[40rem] flex flex-col">
-      <div className="flex justify-between gap-2 mb-2">
-        <SearchBar />
-      </div>
+    <div className="p-2 w-full flex flex-col">
       <div className=" overflow-scroll">
         {!isSearchResultEmpty ? (
           Object.entries(filteredData).map((v) => (

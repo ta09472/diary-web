@@ -58,12 +58,12 @@ ul {
 } */
 
 body {
-  min-height: 100vh;
+  /* min-height: 100vh;
   min-width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   color: #696969;
   background: #f3f5f2;
   line-height: 1.6;

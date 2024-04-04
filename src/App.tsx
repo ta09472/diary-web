@@ -10,7 +10,7 @@ function App(): JSX.Element {
   // 로그인 검증해서 로그인 페이지로 리다이렉션
 
   return (
-    <>
+    <div className=" lg:h-min-[100vh] lg:w-min-[100vw] flex flex-col lg:justify-center lg:items-center">
       <Navigation />
       <Routes>
         <Route path="/" Component={SignIn} />
@@ -22,7 +22,7 @@ function App(): JSX.Element {
           Component={HistoryDetail}
         />
       </Routes>
-    </>
+    </div>
   )
 }
 
