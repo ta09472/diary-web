@@ -40,7 +40,7 @@ export default function Diary(): React.ReactElement {
         name: user?.givenName,
         email: user?.email,
         weather,
-        today
+        date: today
       }),
     onSuccess: () => {
       messageApi.success('일기가 성공적으로 제출되었어요!')

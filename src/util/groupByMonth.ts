@@ -1,12 +1,14 @@
 // @ts-nocheck
 import { Diary } from '../schema/Diary'
 
-export function groupByMonth(entries): {
+export function groupByMonth(entries: Diary[]): {
   [date: string]: Diary[]
 } {
   if (!entries) return []
   return entries.reduce((acc, entry) => {
     // createdAt에서 년도와 월을 추출하여 "년_월" 형식으로 만듦
+
+    console.log(acc)
     const match = entry.createdAt.match(
       /\d{4}년\s+(\d{2})월/
     )
