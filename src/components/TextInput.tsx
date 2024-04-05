@@ -134,7 +134,7 @@ export default function TextInput({
     <>
       <TextArea
         autoSize
-        className="p-2 text-4xl text-gray-700 font-[HakgyoansimKkokkomaR] overflow-scroll"
+        className="p-2 text-gray-700 font-[HakgyoansimKkokkomaR] overflow-scroll"
         variant="borderless"
         placeholder={`${user?.givenName ?? ''}야! 오늘 너의 하루는 어땠니?`}
         onKeyDown={(e) => handleKeyDown(e)}
