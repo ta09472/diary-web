@@ -26,7 +26,7 @@ export default function HistoryCard({
     <Card
       loading={loading}
       classNames={{
-        cover: 'flex px-6 pt-4 text-gray-400'
+        cover: 'flex px-6 pt-4 text-gray-400 text-2xl'
       }}
       cover={
         <p>
@@ -45,8 +45,19 @@ export default function HistoryCard({
       }
     >
       <Card.Meta
-        title={data.content}
-        description={data.response}
+        title={
+          <div className="text-xl">
+            {data.content.length >= 40
+              ? `${data.content.slice(0, 40)}...`
+              : data.content}
+          </div>
+        }
+        className="text-2xl"
+        description={
+          data.response.length >= 60
+            ? `${data.response.slice(0, 60)}...`
+            : data.response
+        }
       />
     </Card>
   )

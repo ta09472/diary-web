@@ -30,15 +30,53 @@ export default function HistoryList({ input }: Props) {
     email: ''
   }) as User
 
-  const { data, isLoading } = useQuery({
-    queryKey: [user?.email],
-    queryFn: () =>
-      instance.get('/myHistory', {
-        params: {
-          email: user.email
-        }
-      })
-  })
+  // const { data, isLoading } = useQuery({
+  //   queryKey: [user?.email],
+  //   queryFn: () =>
+  //     instance.get('/myHistory', {
+  //       params: {
+  //         email: user.email
+  //       }
+  //     })
+  // })
+
+  const isLoading = false
+  const data = {
+    data: {
+      res: '{"history":[{"response":"qjatn아, 네 일기가 평온하고 행복한 당신의 하루를 보여주는 것 같아. clear한 날씨처럼 너의 생활도 맑고 분명한 모습을 보여줬을 테고, 그게 정말 좋아. 열심히 살고 계신 qjatn아, 앞으로도 굳건하게 한 발 한 발 전진하세요! 잘하고 있어요.","content":"asd","author":"qjatn","createdAt":"2024년 04월 05일 금요일","weather":"clear"}]}'
+    },
+    status: 200,
+    statusText: '',
+    headers: {
+      'content-type': 'application/json; charset=UTF-8'
+    },
+    config: {
+      transitional: {
+        silentJSONParsing: true,
+        forcedJSONParsing: true,
+        clarifyTimeoutError: false
+      },
+      adapter: ['xhr', 'http'],
+      transformRequest: [null],
+      transformResponse: [null],
+      timeout: 100000,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: {},
+      headers: {
+        Accept: 'application/json, text/plain, */*'
+      },
+      baseURL: 'https://diary-server.ta09472.workers.dev',
+      params: {
+        email: 'konem09472@gmail.com'
+      },
+      method: 'get',
+      url: '/myHistory'
+    },
+    request: {}
+  }
 
   const history: Diary[] =
     JSON.parse(data?.data?.res ?? '{}').history ?? []
@@ -59,7 +97,9 @@ export default function HistoryList({ input }: Props) {
           Object.entries(filteredData).map((v) => (
             <div key={v[0]}>
               <Divider orientation="left" key={v[0]}>
-                {v[0].replace('_', ' ')}
+                <div className="text-3xl">
+                  {v[0].replace('_', ' ')}
+                </div>
               </Divider>
               <div className="grid grid-cols-1 gap-2 ">
                 {v[1]?.map((v, index) => (
