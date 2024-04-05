@@ -14,12 +14,15 @@ import { Button, Divider, Empty } from 'antd'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function HistoryList() {
+interface Props {
+  input: string
+}
+
+export default function HistoryList({ input }: Props) {
   const navigate = useNavigate()
   const [value, setValue] = useState<string | number>(
     'newest'
   )
-  const [input, setInput] = useState('')
 
   const user = (getLocalStorage('user') ?? {
     familyName: '',

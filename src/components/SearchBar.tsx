@@ -1,43 +1,17 @@
 import { SearchOutlined } from '@ant-design/icons'
-import { Segmented, Input } from 'antd'
-import { useState } from 'react'
+import { Input } from 'antd'
 
-const { Search } = Input
+interface Props {
+  input: string
+  onChange: (v: string) => void
+}
 
-const options = [
-  {
-    label: (
-      //   <div className="w-[4rem] h-[2rem] text-[1.2rem] lg:w-[1rem] lg:h-[1rem] lg:text-[1rem] ">
-      <div>최신 순</div>
-      //   </div>
-    ),
-    value: 'newest'
-  },
-  {
-    label: (
-      <div>오래된 순</div>
-      //   <div className="w-[4rem] h-[2rem] text-[1.2rem] lg:w-[1rem] lg:h-[1rem] lg:text-[1rem] ">
-
-      //   </div>
-    ),
-    value: 'lately'
-  }
-]
-
-export default function SearchBar() {
-  const [value, setValue] = useState<string | number>(
-    'newest'
-  )
-  const [input, setInput] = useState('')
-
+export default function SearchBar({
+  input,
+  onChange
+}: Props) {
   return (
     <div className="flex justify-between gap-2 my-8 w-full h-[4rem]">
-      {/* <Segmented
-        size="large"
-        options={options}
-        value={value}
-        onChange={setValue}
-      /> */}
       <Input
         size="large"
         className="h-[6rem] text-[2.5rem] lg:h-[3rem] lg:text-[1.5rem]"
@@ -69,7 +43,7 @@ export default function SearchBar() {
           )
         }}
         value={input}
-        onChange={(e) => setInput(e.currentTarget.value)}
+        onChange={(e) => onChange(e.currentTarget.value)}
       />
     </div>
   )

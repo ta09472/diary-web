@@ -3,12 +3,18 @@ import HistoryList from '../components/HisrotryList'
 import { getLocalStorage } from '../util/localStorage'
 import { User } from '../schema/User'
 import { Navigate } from 'react-router-dom'
+import { useState } from 'react'
 
 export default function Diary(): React.ReactElement {
+  const [input, setInput] = useState('')
+
+  const onChange = (value: string) => {
+    setInput(value)
+  }
   return (
     <div className=" flex flex-col p-8">
-      <SearchBar />
-      {/* <HistoryList /> */}
+      <SearchBar input={input} onChange={onChange} />
+      <HistoryList input={input} />
     </div>
   )
 }
