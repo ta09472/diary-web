@@ -1,8 +1,5 @@
 import SearchBar from '../components/SearchBar'
 import HistoryList from '../components/HisrotryList'
-import { getLocalStorage } from '../util/localStorage'
-import { User } from '../schema/User'
-import { Navigate } from 'react-router-dom'
 import { useState } from 'react'
 
 export default function Diary(): React.ReactElement {
