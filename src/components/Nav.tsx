@@ -25,7 +25,8 @@ export default function Navigation(): React.ReactElement {
             type="text"
           >
             <div className="flex items-center justify-center w-full h-full">
-              {pathname === '/' ? (
+              {pathname === '/' ||
+              pathname.includes('history') ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"

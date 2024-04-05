@@ -19,7 +19,7 @@ export default function HistoryDetail(): React.ReactElement {
     <div className="m-10 mt-16 flex flex-col ">
       <div>
         <Button
-          className="p-0 pb-8 flex justify-center items-center"
+          className="p-0 pb-12 flex justify-center items-center"
           onClick={() => navigate('/')}
           type="link"
         >
