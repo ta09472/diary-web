@@ -133,6 +133,9 @@ export default function TextInput({
   return (
     <>
       <TextArea
+        style={{
+          fontSize: '16px'
+        }}
         className="p-2 text-4xl text-gray-700 font-[HakgyoansimKkokkomaR] overflow-scroll"
         variant="borderless"
         placeholder={`${user?.givenName ?? ''}야! 오늘 너의 하루는 어땠니?`}
