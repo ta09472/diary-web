@@ -2,7 +2,6 @@ import { Input, Modal, message } from 'antd'
 import audio from '../resources/sounds/WrtingPencil.mp3'
 import { useRef, useState } from 'react'
 import fadeAudioOut from '../util/fadeoutAudio'
-import { EditOutlined } from '@ant-design/icons'
 import { useMutation } from '@tanstack/react-query'
 import instance from '../lib/axios'
 import { getLocalStorage } from '../util/localStorage'
@@ -16,16 +15,12 @@ interface Props {
   textareaRef: React.RefObject<HTMLTextAreaElement>
   weather: string
   date: string
-  input: string
-  handleInput: (v: string) => void
 }
 
 export default function TextInput({
   textareaRef,
   weather,
-  date,
-  input,
-  handleInput
+  date
 }: Props): React.ReactElement {
   const user = getLocalStorage('user') as User
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -55,50 +50,50 @@ export default function TextInput({
     }
   })
 
-  const confirm = (): void => {
-    modal.confirm({
-      content: (
-        <div className="flex flex-col">
-          <div className="text-lg font-400 text-gray-800">
-            오늘의 일기를 제출 할까요?
-          </div>
-          <div className="font-600 text-sm font-semibold">
-            제출 후에는 일기를 수정할 수 없어요.
-          </div>
-        </div>
-      ),
-      icon: <EditOutlined />,
-      okText: (
-        <>
-          {isPending ? null : (
-            <div className=" text-xs gap-1 flex justify-evenly items-center">
-              <div className="text-sm">네!</div>
-              <div className="text-[0.6rem] px-[0.2rem] py-[0.1rem] border rounded-md shadow-md  border-b-4 border-gray-700">
-                Enter
-              </div>
-            </div>
-          )}
-        </>
-      ),
-      cancelText: (
-        <>
-          {isPending ? null : (
-            <div className=" text-xs gap-1 flex justify-evenly items-center">
-              <div className="text-sm">아직이요!</div>
-              <div className="text-[0.6rem] px-[0.2rem] py-[0.1rem] border rounded-md shadow-md  border-b-4 border-gray-700">
-                Esc
-              </div>
-            </div>
-          )}
-        </>
-      ),
-      okType: 'default',
-      onCancel: () => textareaRef.current?.focus(),
-      onOk: async () => {
-        await mutateAsync(input)
-      }
-    })
-  }
+  // const confirm = (): void => {
+  //   modal.confirm({
+  //     content: (
+  //       <div className="flex flex-col">
+  //         <div className="text-lg font-400 text-gray-800">
+  //           오늘의 일기를 제출 할까요?
+  //         </div>
+  //         <div className="font-600 text-sm font-semibold">
+  //           제출 후에는 일기를 수정할 수 없어요.
+  //         </div>
+  //       </div>
+  //     ),
+  //     icon: <EditOutlined />,
+  //     okText: (
+  //       <>
+  //         {isPending ? null : (
+  //           <div className=" text-xs gap-1 flex justify-evenly items-center">
+  //             <div className="text-sm">네!</div>
+  //             <div className="text-[0.6rem] px-[0.2rem] py-[0.1rem] border rounded-md shadow-md  border-b-4 border-gray-700">
+  //               Enter
+  //             </div>
+  //           </div>
+  //         )}
+  //       </>
+  //     ),
+  //     cancelText: (
+  //       <>
+  //         {isPending ? null : (
+  //           <div className=" text-xs gap-1 flex justify-evenly items-center">
+  //             <div className="text-sm">아직이요!</div>
+  //             <div className="text-[0.6rem] px-[0.2rem] py-[0.1rem] border rounded-md shadow-md  border-b-4 border-gray-700">
+  //               Esc
+  //             </div>
+  //           </div>
+  //         )}
+  //       </>
+  //     ),
+  //     okType: 'default',
+  //     onCancel: () => textareaRef.current?.focus(),
+  //     onOk: async () => {
+  //       await mutateAsync(input)
+  //     }
+  //   })
+  // }
 
   const handleKeyDown = (
     e: React.KeyboardEvent<HTMLTextAreaElement>
@@ -140,13 +135,10 @@ export default function TextInput({
       <TextArea
         autoSize
         className="p-2 text-4xl text-gray-700 font-[HakgyoansimKkokkomaR] overflow-scroll"
-        // className="p-2 text-3xl text-gray-700"
         variant="borderless"
         placeholder={`${user?.givenName ?? ''}야! 오늘 너의 하루는 어땠니?`}
         onKeyDown={(e) => handleKeyDown(e)}
         ref={textareaRef}
-        onInput={(e) => handleInput(e.currentTarget.value)}
-        value={input}
         rows={8}
       />
       <audio ref={audioRef} src={audio} />

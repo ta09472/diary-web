@@ -6,7 +6,6 @@ import Weather, {
 } from '../components/Weather'
 
 import { useRef, useState } from 'react'
-import bird from '../resources/images/bird.svg'
 import TextInput from '../components/TextInput'
 import { Button, Drawer, Modal, Space, message } from 'antd'
 import { useMutation } from '@tanstack/react-query'
@@ -14,29 +13,30 @@ import instance from '../lib/axios'
 import { getLocalStorage } from '../util/localStorage'
 import { User } from '../schema/User'
 import { useNavigate } from 'react-router-dom'
-import { EditOutlined } from '@ant-design/icons'
 
 const today = dayjs()
   .locale('ko')
   .format('YYYY년 MM월 DD일 dddd')
 
 export default function Diary(): React.ReactElement {
-  const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const textareaRef = useRef<any>(null)
+  const [messageApi, messageContextHolder] =
+    message.useMessage()
+  const navigate = useNavigate()
   const user = getLocalStorage('user') as User
+
   const [weather, setWeather] = useState(
     weatherOptions[0].value
   )
-  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [input, setInput] = useState('')
-
-  const [messageApi, messageContextHolder] =
-    message.useMessage()
 
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async (input: string) =>
       await instance.post('/chatgpt', {
-        message: input,
+        message:
+          textareaRef?.current?.resizableTextArea?.textArea
+            .value,
         name: user?.givenName,
         email: user?.email,
         weather,
@@ -53,6 +53,7 @@ export default function Diary(): React.ReactElement {
   const handleInput = (value: string): void => {
     setInput(value)
   }
+
   return (
     <div
       className="m-10 mt-16 flex flex-col justify-around"
@@ -93,8 +94,6 @@ export default function Diary(): React.ReactElement {
             textareaRef={textareaRef}
             weather={weather}
             date={today}
-            handleInput={handleInput}
-            input={input}
           />
         </div>
       </div>

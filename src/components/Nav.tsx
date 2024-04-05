@@ -1,28 +1,16 @@
-import { Button, Drawer, Input } from 'antd'
-import { useRef, useState } from 'react'
+import { Button } from 'antd'
 
 import { useLocation, useNavigate } from 'react-router-dom'
-import Weather, { weatherOptions } from './Weather'
+
+import { getLocalStorage } from '../util/localStorage'
+import { User } from '../schema/User'
 
 export default function Navigation(): React.ReactElement {
   const { pathname } = useLocation()
   const navigate = useNavigate()
+  const user = getLocalStorage('user') as User
 
-  const [open, setOpen] = useState(false)
-
-  const textareaRef = useRef<HTMLTextAreaElement>(null)
-
-  const [weather, setWeather] = useState<string | null>(
-    null
-  )
-
-  const showDrawer = () => {
-    setOpen(true)
-  }
-
-  const onClose = () => {
-    setOpen(false)
-  }
+  if (!user) return <></>
 
   if (pathname === '/login' || pathname === '/pending')
     return <></>
