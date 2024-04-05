@@ -139,6 +139,9 @@ export default function TextInput({
         onKeyDown={(e) => handleKeyDown(e)}
         ref={textareaRef}
         rows={8}
+        style={{
+          resize: 'none'
+        }}
       />
       <audio ref={audioRef} src={audio} />
       {contextHolder}

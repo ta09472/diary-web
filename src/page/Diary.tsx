@@ -7,7 +7,7 @@ import Weather, {
 
 import { useRef, useState } from 'react'
 import TextInput from '../components/TextInput'
-import { Button, Drawer, Modal, Space, message } from 'antd'
+import { Button, Drawer, Space, message } from 'antd'
 import { useMutation } from '@tanstack/react-query'
 import instance from '../lib/axios'
 import { getLocalStorage } from '../util/localStorage'
@@ -29,10 +29,9 @@ export default function Diary(): React.ReactElement {
     weatherOptions[0].value
   )
   const [open, setOpen] = useState(false)
-  const [input, setInput] = useState('')
 
   const { mutateAsync, isPending } = useMutation({
-    mutationFn: async (input: string) =>
+    mutationFn: async () =>
       await instance.post('/chatgpt', {
         message:
           textareaRef?.current?.resizableTextArea?.textArea
@@ -43,21 +42,21 @@ export default function Diary(): React.ReactElement {
         date: today
       }),
     onSuccess: () => {
-      messageApi.success('일기가 성공적으로 제출되었어요!')
+      messageApi.success(
+        <div className="text-3xl">
+          일기가 성공적으로 제출되었어요!
+        </div>
+      )
       setTimeout(() => {
         navigate('/')
       }, 1000)
     }
   })
 
-  const handleInput = (value: string): void => {
-    setInput(value)
-  }
-
   return (
     <div
-      className="m-10 mt-16 flex flex-col justify-around"
-      style={{ height: `calc(100vh - 24rem)` }}
+      className="m-10 flex flex-col  gap-8"
+      style={{ height: `calc(100vh - 30rem)` }}
     >
       {messageContextHolder}
       <div className="border-2 border-gray-500 w-full h-[60rem] ">
@@ -98,7 +97,7 @@ export default function Diary(): React.ReactElement {
         </div>
       </div>
       <Button
-        className="text-[2.4rem] h-[6rem] lg:h-[2rem] lg:text-[0.8rem] bg-black text-gray-100 font-semibold"
+        className="text-[2.4rem] h-[7rem] lg:text-[1.8rem] lg:h-[4rem] bg-black text-gray-100 font-semibold"
         block
         onClick={() => setOpen(true)}
       >
@@ -107,7 +106,7 @@ export default function Diary(): React.ReactElement {
       <Drawer
         className=" rounded-t-xl"
         title={
-          <div className="text-3xl font-semibold">
+          <div className="text-4xl font-semibold">
             일기를 제출할까요?
           </div>
         }
@@ -123,22 +122,22 @@ export default function Diary(): React.ReactElement {
                 setOpen(false)
                 textareaRef.current?.focus()
               }}
-              className="text-xl flex justify-center items-center px-[2.2rem] py-[1.8rem]"
+              className="text-3xl flex justify-center items-center px-[2.8rem] py-[2.2rem]"
             >
-              아니요!
+              아니요
             </Button>
             <Button
               loading={isPending}
               disabled={isPending}
-              onClick={async () => await mutateAsync(input)}
-              className="bg-black text-gray-100 text-xl font-semibold flex justify-center items-center  px-[3.2rem] py-[1.8rem]"
+              onClick={async () => await mutateAsync()}
+              className="bg-black text-gray-100 text-3xl font-semibold flex justify-center items-center  px-[4rem] py-[2.2rem]"
             >
-              네!
+              네
             </Button>
           </Space>
         }
       >
-        <div className="text-2xl lg:text-lg m-5 bg-slate-100 rounded-xl flex flex-col justify-center items-center p-4">
+        <div className="text-3xl lg:text-lg m-5 bg-slate-100 rounded-xl flex flex-col justify-center items-center p-4">
           일기를 제출 한 이후에는 수정이 불가능해요.
         </div>
       </Drawer>
