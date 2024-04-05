@@ -64,7 +64,7 @@ export default function HistoryList({ input }: Props) {
             Object.entries(filteredData).map((v) => (
               <div key={v[0]}>
                 <Divider orientation="left" key={v[0]}>
-                  <div className="text-3xl">
+                  <div className="text-4xl">
                     {v[0].replace('_', ' ')}
                   </div>
                 </Divider>

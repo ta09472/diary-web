@@ -9,7 +9,7 @@ export default function Diary(): React.ReactElement {
     setInput(value)
   }
   return (
-    <div className=" flex flex-col p-8">
+    <div className=" flex flex-col p-8 gap-4">
       <SearchBar input={input} onChange={onChange} />
       <HistoryList input={input} />
     </div>

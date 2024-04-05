@@ -38,7 +38,7 @@ export default function SignIn(): React.ReactElement {
           </div>
         </div>
 
-        <Input
+        {/* <Input
           variant="filled"
           className="h-[6rem] text-[2.2rem] lg:h-[2rem] lg:text-[1rem]"
           prefix={<UserOutlined className="lg:p-0 p-1" />}
@@ -61,7 +61,7 @@ export default function SignIn(): React.ReactElement {
           className=" place-self-end p-0 text-[1.8rem] lg:text-[1rem]"
         >
           아직 계정이 없으신가요?
-        </Button>
+        </Button> */}
       </div>
 
       <Divider>
@@ -70,7 +70,7 @@ export default function SignIn(): React.ReactElement {
         </div>
       </Divider>
       <div className="flex flex-col gap-4 w-full">
-        <Button
+        {/* <Button
           type="text"
           block
           icon={
@@ -82,8 +82,8 @@ export default function SignIn(): React.ReactElement {
           className="flex justify-center items-center bg-[#fee500] p-4 text-[#181600] text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem]"
         >
           카카오 로그인
-        </Button>
-        <Button
+        </Button> */}
+        {/* <Button
           type="text"
           block
           icon={
@@ -95,7 +95,7 @@ export default function SignIn(): React.ReactElement {
           className="flex justify-center items-center bg-[#01c75b] p-4 text-white text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem]"
         >
           네이버 로그인
-        </Button>
+        </Button> */}
         <Button
           block
           icon={
