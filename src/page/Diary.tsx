@@ -6,9 +6,9 @@ import Weather, {
 } from '../components/Weather'
 
 import { useRef, useState } from 'react'
-
+import bird from '../resources/images/bird.svg'
 import TextInput from '../components/TextInput'
-import { Button, Modal, message } from 'antd'
+import { Button, Drawer, Modal, Space, message } from 'antd'
 import { useMutation } from '@tanstack/react-query'
 import instance from '../lib/axios'
 import { getLocalStorage } from '../util/localStorage'
@@ -27,9 +27,9 @@ export default function Diary(): React.ReactElement {
     weatherOptions[0].value
   )
   const navigate = useNavigate()
-
+  const [open, setOpen] = useState(false)
   const [input, setInput] = useState('')
-  const [modal, contextHolder] = Modal.useModal()
+
   const [messageApi, messageContextHolder] =
     message.useMessage()
 
@@ -50,53 +50,6 @@ export default function Diary(): React.ReactElement {
     }
   })
 
-  const confirm = (): void => {
-    modal.confirm({
-      width: 'full',
-
-      content: (
-        <div className="flex flex-col">
-          <div className="text-lg font-400 text-gray-800">
-            오늘의 일기를 제출 할까요?
-          </div>
-          <div className="font-600 text-sm font-semibold">
-            제출 후에는 일기를 수정할 수 없어요.
-          </div>
-        </div>
-      ),
-      icon: <EditOutlined />,
-      okText: (
-        <>
-          {isPending ? null : (
-            <div className=" text-xs gap-1 flex justify-evenly items-center">
-              <div className="text-sm">네!</div>
-              <div className="text-[0.6rem] px-[0.2rem] py-[0.1rem] border rounded-md shadow-md  border-b-4 border-gray-700">
-                Enter
-              </div>
-            </div>
-          )}
-        </>
-      ),
-      cancelText: (
-        <>
-          {isPending ? null : (
-            <div className=" text-xs gap-1 flex justify-evenly items-center">
-              <div className="text-sm">아직이요!</div>
-              <div className="text-[0.6rem] px-[0.2rem] py-[0.1rem] border rounded-md shadow-md  border-b-4 border-gray-700">
-                Esc
-              </div>
-            </div>
-          )}
-        </>
-      ),
-      okType: 'default',
-      onCancel: () => textareaRef.current?.focus(),
-      onOk: async () => {
-        await mutateAsync(input)
-      }
-    })
-  }
-
   const handleInput = (value: string): void => {
     setInput(value)
   }
@@ -106,7 +59,6 @@ export default function Diary(): React.ReactElement {
       style={{ height: `calc(100vh - 8rem)` }}
     >
       {messageContextHolder}
-      {contextHolder}
       <div className="border-2 border-gray-500 w-full h-[60rem] ">
         <div className="grid grid-cols-2">
           <div className="border-r border-gray-500">
@@ -149,10 +101,48 @@ export default function Diary(): React.ReactElement {
       <Button
         className="text-[2.4rem] h-[6rem] lg:h-[2rem] lg:text-[0.8rem] bg-black text-gray-100 font-semibold"
         block
-        onClick={confirm}
+        onClick={() => setOpen(true)}
       >
         일기 제출
       </Button>
+      <Drawer
+        className=" rounded-t-xl"
+        title={
+          <div className="text-3xl font-semibold">
+            일기를 제출할까요?
+          </div>
+        }
+        placement="bottom"
+        closeIcon={null}
+        // size="large"
+        onClose={() => setOpen(false)}
+        open={open}
+        extra={
+          <Space>
+            <Button
+              onClick={() => {
+                setOpen(false)
+                textareaRef.current?.focus()
+              }}
+              className="text-xl flex justify-center items-center px-[2.2rem] py-[1.8rem]"
+            >
+              아니요!
+            </Button>
+            <Button
+              loading={isPending}
+              disabled={isPending}
+              onClick={async () => await mutateAsync(input)}
+              className="bg-black text-gray-100 text-xl font-semibold flex justify-center items-center  px-[3.2rem] py-[1.8rem]"
+            >
+              네!
+            </Button>
+          </Space>
+        }
+      >
+        <div className="text-2xl lg:text-lg m-5 bg-slate-100 rounded-xl flex flex-col justify-center items-center p-4">
+          일기를 제출 한 이후에는 수정이 불가능해요.
+        </div>
+      </Drawer>
     </div>
   )
 }
