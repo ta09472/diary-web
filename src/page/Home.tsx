@@ -8,7 +8,7 @@ export default function Diary(): React.ReactElement {
   return (
     <div className=" flex flex-col p-8">
       <SearchBar />
-      <HistoryList />
+      {/* <HistoryList /> */}
     </div>
   )
 }
