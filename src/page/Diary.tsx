@@ -55,7 +55,7 @@ export default function Diary(): React.ReactElement {
 
   return (
     <div
-      className="m-10 mt-[10rem] flex flex-col  gap-8"
+      className="m-10 mt-[8rem] flex flex-col  gap-8"
       style={{ height: `calc(100vh - 30rem)` }}
     >
       {messageContextHolder}
@@ -112,11 +112,19 @@ export default function Diary(): React.ReactElement {
         }
         placement="bottom"
         closeIcon={null}
-        size="large"
+        // size="large"
         onClose={() => setOpen(false)}
         open={open}
         extra={
           <Space>
+            <Button
+              loading={isPending}
+              disabled={isPending}
+              onClick={async () => await mutateAsync()}
+              className="bg-black text-gray-100 text-4xl font-semibold flex justify-center items-center  px-[5.4rem] py-[3rem]"
+            >
+              네
+            </Button>
             <Button
               onClick={() => {
                 setOpen(false)
@@ -125,14 +133,6 @@ export default function Diary(): React.ReactElement {
               className="text-4xl flex justify-center items-center px-[3.6rem] py-[3rem]"
             >
               아니요
-            </Button>
-            <Button
-              loading={isPending}
-              disabled={isPending}
-              onClick={async () => await mutateAsync()}
-              className="bg-black text-gray-100 text-4xl font-semibold flex justify-center items-center  px-[5.4rem] py-[3rem]"
-            >
-              네
             </Button>
           </Space>
         }

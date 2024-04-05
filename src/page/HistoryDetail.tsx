@@ -27,7 +27,7 @@ export default function HistoryDetail(): React.ReactElement {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            className="w-[2rem] h-[2rem] lg:w-[2rem] lg:h-[2rem] text-gray-700"
+            className="w-[4rem] h-[4rem] lg:w-[2rem] lg:h-[2rem] text-gray-700"
           >
             <path
               fillRule="evenodd"
@@ -69,7 +69,7 @@ export default function HistoryDetail(): React.ReactElement {
 
           <div className="flex flex-col  border-t border-gray-500 h-full ">
             <div className="overflow-y-scroll">
-              <p className=" p-2 text-3xl w-full text-gray-700 ">
+              <p className=" p-2 text-5xl w-full text-gray-700 ">
                 {data.value}
               </p>
             </div>
@@ -80,7 +80,7 @@ export default function HistoryDetail(): React.ReactElement {
               }}
             >
               <div className="max-w-72">
-                <p className={'text-2xl -rotate-3'}>
+                <p className={'text-4xl -rotate-3'}>
                   {data.response}
                 </p>
                 <img src={stamp} width={140} height={140} />
