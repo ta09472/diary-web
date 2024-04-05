@@ -45,7 +45,7 @@ export default function Diary(): React.ReactElement {
     onSuccess: () => {
       messageApi.success('일기가 성공적으로 제출되었어요!')
       setTimeout(() => {
-        navigate('/history')
+        navigate('/')
       }, 1000)
     }
   })
