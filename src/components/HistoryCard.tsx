@@ -46,13 +46,13 @@ export default function HistoryCard({
     >
       <Card.Meta
         title={
-          <div className="text-xl">
+          <div className="text-2xl">
             {data.content.length >= 40
               ? `${data.content.slice(0, 40)}...`
               : data.content}
           </div>
         }
-        className="text-2xl"
+        className="text-3xl font-semibold"
         description={
           data.response.length >= 60
             ? `${data.response.slice(0, 60)}...`

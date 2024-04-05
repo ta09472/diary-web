@@ -16,10 +16,7 @@ export default function HistoryDetail(): React.ReactElement {
   }
 
   return (
-    <div
-      className="m-10 mt-16 flex flex-col justify-around"
-      style={{ height: `calc(100vh - 8rem)` }}
-    >
+    <div className="m-10 mt-16 flex flex-col ">
       <div>
         <Button
           className="p-0 pb-8 flex justify-center items-center"
