@@ -55,7 +55,7 @@ export default function Diary(): React.ReactElement {
 
   return (
     <div
-      className="m-10 flex flex-col  gap-8"
+      className="m-10 mt-[10rem] flex flex-col  gap-8"
       style={{ height: `calc(100vh - 30rem)` }}
     >
       {messageContextHolder}
@@ -68,7 +68,7 @@ export default function Diary(): React.ReactElement {
               <div>{today.slice(10, 13)}</div>
               <div>{today.slice(14)}</div>
             </div>
-            <div className="border-t border-gray-500 min-h-16 text-3xl p-1">
+            <div className="border-t border-gray-500 min-h-16 text-4xl p-2">
               일어난 시간
             </div>
           </div>
@@ -80,7 +80,7 @@ export default function Diary(): React.ReactElement {
             />
 
             <div
-              className="border-t border-gray-500 min-h-16 text-3xl p-1"
+              className="border-t border-gray-500 min-h-16 text-4xl p-2"
               // style={{ fontFamily: 'HakgyoansimEunhasuR' }}
             >
               잠든 시간
@@ -112,7 +112,7 @@ export default function Diary(): React.ReactElement {
         }
         placement="bottom"
         closeIcon={null}
-        // size="large"
+        size="large"
         onClose={() => setOpen(false)}
         open={open}
         extra={
@@ -122,7 +122,7 @@ export default function Diary(): React.ReactElement {
                 setOpen(false)
                 textareaRef.current?.focus()
               }}
-              className="text-3xl flex justify-center items-center px-[2.8rem] py-[2.2rem]"
+              className="text-4xl flex justify-center items-center px-[3.6rem] py-[3rem]"
             >
               아니요
             </Button>
@@ -130,7 +130,7 @@ export default function Diary(): React.ReactElement {
               loading={isPending}
               disabled={isPending}
               onClick={async () => await mutateAsync()}
-              className="bg-black text-gray-100 text-3xl font-semibold flex justify-center items-center  px-[4rem] py-[2.2rem]"
+              className="bg-black text-gray-100 text-4xl font-semibold flex justify-center items-center  px-[5.4rem] py-[3rem]"
             >
               네
             </Button>
