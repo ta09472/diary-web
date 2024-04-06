@@ -44,6 +44,8 @@ export default function HistoryList({ input }: Props) {
   const history: Diary[] =
     JSON.parse(data?.data?.res ?? '{}').history ?? []
 
+  console.log(JSON.parse(data?.data?.res ?? '{}'))
+  console.log(history)
   const historyWithState =
     value === 'lately' ? history : [...history].reverse()
   const groupedData = groupByMonth(historyWithState)

@@ -13,7 +13,10 @@ export default function Profile() {
     email: ''
   }) as User
   return (
-    <div className="w-full h-[100vh] lg:w-[34rem] p-12 flex flex-col justify-center items-center place-self-center">
+    <div
+      className="w-full lg:w-[34rem] p-12 flex flex-col justify-center items-center place-self-center"
+      style={{ height: `calc(100vh - 34rem)` }}
+    >
       <p className="text-[2.4rem] lg:text-2xl">
         {user.givenName}
       </p>
