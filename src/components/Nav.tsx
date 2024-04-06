@@ -10,10 +10,10 @@ export default function Navigation(): React.ReactElement {
   const navigate = useNavigate()
   const user = getLocalStorage('user') as User
 
-  if (!user) return <></>
+  // if (!user) return <></>
 
-  if (pathname === '/login' || pathname === '/pending')
-    return <></>
+  // if (pathname === '/login' || pathname === '/pending')
+  //   return <></>
 
   return (
     <>

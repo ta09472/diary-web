@@ -97,7 +97,7 @@ export default function Diary(): React.ReactElement {
         </div>
       </div>
       <Button
-        className="text-[2.4rem] h-[7rem] lg:text-[1.8rem] lg:h-[4rem] bg-black text-gray-100 font-semibold rounded-2xl bg-[#84a68a]"
+        className="text-[2.4rem] h-[7rem] lg:text-[1.8rem] lg:h-[4rem] text-gray-100 font-semibold rounded-2xl bg-[#84a68a]"
         block
         onClick={() => setOpen(true)}
       >

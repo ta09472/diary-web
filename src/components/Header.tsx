@@ -8,12 +8,12 @@ export default function Header() {
   const navigate = useNavigate()
   const user = getLocalStorage('user') as User
 
-  if (!user) return <></>
+  // if (!user) return <></>
 
-  if (pathname === '/login' || pathname === '/pending')
-    return <></>
+  // if (pathname === '/login' || pathname === '/pending')
+  //   return <></>
   return (
-    <div className=" sticky top-0 bg-transparent w-full h-[8rem] flex justify-between items-center bg-[#84a68a] rounded-b-2xl">
+    <div className=" sticky top-0 bg-transparent inset-x-0 w-full h-[8rem] flex justify-between items-center bg-[#84a68a] rounded-b-2xl">
       <Button
         type="link"
         onClick={() => navigate('/')}
