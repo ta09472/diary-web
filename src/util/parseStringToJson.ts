@@ -7,7 +7,7 @@ export default function parseHistoryData(
     // JSON 문자열을 안전하게 파싱합니다.
     const parsedData = JSON.parse(dataString ?? '{}')
     // history가 배열인지 확인하고, 맞다면 그 값을 반환합니다.
-    console.log(parsedData)
+
     if (Array.isArray(parsedData.history)) {
       return parsedData.history
     } else {
