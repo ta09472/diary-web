@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const BASE_URL = 'https://diary-server.ta09472.workers.dev'
 
-// const BASE_URL = 'http://localhost:3000'
+// const BASE_URL = 'http://localhost:8787'
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 // axios.defaults.adapter = function () {
