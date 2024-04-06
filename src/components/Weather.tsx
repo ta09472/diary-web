@@ -79,7 +79,7 @@ export default function Weather({
   }
 
   return (
-    <div className="gap-4 px-2 py-1 min-h-[6rem] flex justify-between items-center">
+    <div className="gap-4 px-2 py-2 min-h-[6rem] flex justify-between items-center">
       {weatherOptions.map(({ value, label }) => (
         <WeatherButton
           key={value}
