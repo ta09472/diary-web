@@ -11,7 +11,7 @@ export default function Diary(): React.ReactElement {
   return (
     <div className=" flex flex-col p-8 gap-4 overflow-hidden">
       <SearchBar input={input} onChange={onChange} />
-      <div className=" overflow-scroll max-h-[74rem] py-4">
+      <div className=" overflow-scroll max-h-[76rem] pb-1">
         <HistoryList input={input} />
       </div>
     </div>
