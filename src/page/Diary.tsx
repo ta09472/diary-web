@@ -56,7 +56,7 @@ export default function Diary(): React.ReactElement {
   return (
     <div
       className="m-10 mt-[8rem] flex flex-col  gap-8"
-      style={{ height: `calc(100vh - 30rem)` }}
+      style={{ height: `calc(100vh - 34rem)` }}
     >
       {messageContextHolder}
       <div className="border-4 border-[#c3cfc7] w-full h-[60rem] rounded-xl ">

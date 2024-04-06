@@ -25,7 +25,7 @@ export default function HistoryCard({
   return (
     <Card
       loading={loading}
-      className="py-4"
+      className="py-4 rounded-lg"
       classNames={{
         cover: 'flex px-6 pt-4 text-gray-400 text-2xl'
       }}

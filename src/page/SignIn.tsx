@@ -27,9 +27,12 @@ export default function SignIn(): React.ReactElement {
   const navigate = useNavigate()
 
   return (
-    <div className="w-full h-[100vh] lg:w-[34rem] p-12 flex flex-col justify-center items-center place-self-center">
+    <div
+      className="w-full lg:w-[34rem] p-12 flex flex-col justify-center items-center"
+      style={{ height: `calc(100vh - 30rem)` }}
+    >
       {contextHolder}
-      <div className="flex flex-col gap-4 w-full">
+      <div className="flex flex-col gap-6 w-full">
         <div className=" text-[4rem] lg:text-4xl font-sans text-black font-semibold">
           반가워요!
           <br />
@@ -69,7 +72,7 @@ export default function SignIn(): React.ReactElement {
           간편 로그인
         </div>
       </Divider>
-      <div className="flex flex-col gap-4 w-full">
+      <div className="flex flex-col gap-6 w-full">
         <Button
           type="text"
           block
@@ -113,7 +116,7 @@ export default function SignIn(): React.ReactElement {
           &nbsp; 구글 로그인
         </Button>
       </div>
-      <div className="flex justify-between gap-10 mt-8">
+      <div className="flex justify-between gap-10 mt-16">
         <img
           src={dinosaur}
           className="w-[20rem] lg:w-[12rem]"
