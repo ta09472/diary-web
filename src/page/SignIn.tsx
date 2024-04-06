@@ -30,28 +30,28 @@ export default function SignIn(): React.ReactElement {
     <div className="w-full h-[100vh] lg:w-[34rem] p-12 flex flex-col justify-center items-center place-self-center">
       {contextHolder}
       <div className="flex flex-col gap-4 w-full">
-        <div className=" text-[4rem] lg:text-3xl font-sans text-black font-semibold">
+        <div className=" text-[4rem] lg:text-4xl font-sans text-black font-semibold">
           반가워요!
           <br />
-          <div className="text-[2.4rem] lg:text-2xl">
+          <div className="text-[2.4rem] lg:text-3xl">
             오늘의 일기를 쓸 준비가 되었나요?
           </div>
         </div>
 
-        {/* <Input
+        <Input
           variant="filled"
-          className="h-[6rem] text-[2.2rem] lg:h-[2rem] lg:text-[1rem]"
+          className="h-[6rem] text-[2.2rem] lg:h-[2rem] lg:text-[1rem] rounded-2xl"
           prefix={<UserOutlined className="lg:p-0 p-1" />}
           placeholder="이메일"
         />
         <Input
           variant="filled"
-          className="h-[6rem] text-[2.2rem] lg:h-[2rem] lg:text-[1rem]"
+          className="h-[6rem] text-[2.2rem] lg:h-[2rem] lg:text-[1rem] rounded-2xl"
           placeholder="비밀번호"
           prefix={<LockOutlined className="lg:p-0 p-1" />}
         />
-        <Button className="text-[2.4rem] h-[6rem] lg:h-[2rem] lg:text-[0.8rem] bg-black ">
-          <div className=" text-gray-100 font-semibold ">
+        <Button className="text-[2.4rem] h-[6rem] lg:h-[2rem] lg:text-[0.8rem] bg-[#84a68a] rounded-2xl ">
+          <div className=" text-gray-100 font-semibold rounded-2xl ">
             로그인
           </div>
         </Button>
@@ -61,7 +61,7 @@ export default function SignIn(): React.ReactElement {
           className=" place-self-end p-0 text-[1.8rem] lg:text-[1rem]"
         >
           아직 계정이 없으신가요?
-        </Button> */}
+        </Button>
       </div>
 
       <Divider>
@@ -70,7 +70,7 @@ export default function SignIn(): React.ReactElement {
         </div>
       </Divider>
       <div className="flex flex-col gap-4 w-full">
-        {/* <Button
+        <Button
           type="text"
           block
           icon={
@@ -79,11 +79,11 @@ export default function SignIn(): React.ReactElement {
               className="w-[2rem] lg:h-[1rem] lg:w-[1rem]"
             />
           }
-          className="flex justify-center items-center bg-[#fee500] p-4 text-[#181600] text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem]"
+          className="flex justify-center items-center bg-[#fee500] p-4 text-[#181600] text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem] rounded-2xl"
         >
           카카오 로그인
-        </Button> */}
-        {/* <Button
+        </Button>
+        <Button
           type="text"
           block
           icon={
@@ -92,10 +92,10 @@ export default function SignIn(): React.ReactElement {
               className="w-[2rem] lg:h-[1rem] lg:w-[1rem]"
             />
           }
-          className="flex justify-center items-center bg-[#01c75b] p-4 text-white text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem]"
+          className="flex justify-center items-center bg-[#01c75b] p-4 text-white text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem] rounded-2xl"
         >
           네이버 로그인
-        </Button> */}
+        </Button>
         <Button
           block
           icon={
@@ -104,7 +104,7 @@ export default function SignIn(): React.ReactElement {
               className="w-[2.4rem] lg:h-[1rem] lg:w-[1rem]"
             />
           }
-          className="flex justify-center items-center p-4 text-black text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem]"
+          className="flex justify-center items-center p-4 text-black text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem] rounded-2xl"
           onClick={() => {
             // navigate('/')
             window.location.href = googleConfig.authUrl

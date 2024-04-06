@@ -59,18 +59,18 @@ export default function Diary(): React.ReactElement {
       style={{ height: `calc(100vh - 30rem)` }}
     >
       {messageContextHolder}
-      <div className="border-2 border-gray-500 w-full h-[60rem] ">
+      <div className="border-4 border-[#c3cfc7] w-full h-[60rem] rounded-xl ">
         <div className="grid grid-cols-2">
-          <div className="border-r border-gray-500">
-            <div className="p-2 min-h-24 flex justify-around text-gray-800  items-center text-[2.4rem]">
+          <div className="border-r-[0.2rem] border-[#c3cfc7]">
+            <div className="p-2 min-h-24 flex justify-around text-[#93a597] font-semibold  items-center text-[2.4rem]">
               <div>{today.slice(0, 5)}</div>
               <div>{today.slice(6, 9)}</div>
               <div>{today.slice(10, 13)}</div>
               <div>{today.slice(14)}</div>
             </div>
-            <div className="border-t border-gray-500 min-h-16 text-4xl p-2">
+            {/* <div className="border-t-4 border-[#c3cfc7] min-h-16 text-4xl p-2">
               일어난 시간
-            </div>
+            </div> */}
           </div>
           <div>
             <Weather
@@ -79,16 +79,16 @@ export default function Diary(): React.ReactElement {
               setWeather={setWeather}
             />
 
-            <div
-              className="border-t border-gray-500 min-h-16 text-4xl p-2"
+            {/* <div
+              className="border-t-2 border-[#c3cfc7] min-h-16 text-4xl p-2"
               // style={{ fontFamily: 'HakgyoansimEunhasuR' }}
             >
               잠든 시간
-            </div>
+            </div> */}
           </div>
         </div>
 
-        <div className="flex flex-col border-t border-gray-500 max-h-[50rem]">
+        <div className="flex flex-col border-t-4 border-[#c3cfc7] max-h-[50rem]">
           <TextInput
             textareaRef={textareaRef}
             weather={weather}
@@ -97,7 +97,7 @@ export default function Diary(): React.ReactElement {
         </div>
       </div>
       <Button
-        className="text-[2.4rem] h-[7rem] lg:text-[1.8rem] lg:h-[4rem] bg-black text-gray-100 font-semibold"
+        className="text-[2.4rem] h-[7rem] lg:text-[1.8rem] lg:h-[4rem] bg-black text-gray-100 font-semibold rounded-2xl bg-[#84a68a]"
         block
         onClick={() => setOpen(true)}
       >

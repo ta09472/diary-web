@@ -52,7 +52,6 @@ export default function HistoryList({ input }: Props) {
   const isSearchResultEmpty =
     Object.keys(filteredData).length === 0
   const isEmpty = !(!input && isSearchResultEmpty)
-  console.log(isLoading)
 
   return (
     <div className="p-2 w-full flex flex-col">
@@ -68,7 +67,7 @@ export default function HistoryList({ input }: Props) {
                     {v[0].replace('_', ' ')}
                   </div>
                 </Divider>
-                <div className="grid grid-cols-1 gap-2 ">
+                <div className="grid grid-cols-1 gap-8 ">
                   {v[1]?.map((v, index) => (
                     <HistoryCard
                       loading={isLoading}
@@ -102,7 +101,7 @@ export default function HistoryList({ input }: Props) {
                   <Button
                     type="primary"
                     block
-                    className=" text-[2.6rem] h-[6rem] lg:h-[3rem] lg:text-[1.2rem] bg-black font-semibold mt-2"
+                    className=" text-[2.6rem] h-[6rem] lg:h-[3rem] lg:text-[1.2rem] bg-[#84a68a] font-semibold mt-2 rounded-2xl "
                     onClick={() => navigate('/diary')}
                   >
                     일기 쓰기

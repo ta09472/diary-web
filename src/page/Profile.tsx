@@ -21,7 +21,7 @@ export default function Profile() {
       <Button
         danger
         block
-        className="flex justify-center items-center p-4 text-black text-[2.8rem] border-2 lg:border-1 h-[6rem] lg:h-[1rem] lg:text-[1rem]"
+        className="flex justify-center items-center p-4 text-black text-[2.8rem] border-2 lg:border-1 h-[6rem] lg:h-[1rem] lg:text-[1rem] "
         onClick={() => {
           removeLocalStorage('user')
           navigate('/login')
