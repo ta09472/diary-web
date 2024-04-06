@@ -55,21 +55,21 @@ export default function Diary(): React.ReactElement {
 
   return (
     <div
-      className="m-10 mt-[8rem] flex flex-col  gap-8"
+      className="m-10 mt-[8rem] flex flex-col  gap-6"
       style={{ height: `calc(100vh - 34rem)` }}
     >
       {messageContextHolder}
-      <div className="border-4 border-[#c3cfc7] w-full h-[60rem] rounded-xl ">
+      <div className="border-4 border-[#c3cfc7] w-full h-[56rem] rounded-xl ">
         {/* <div className="grid grid-cols-2"> */}
         <div className="flex items-center justify-evenly">
           <div className="border-r-[0.2rem] border-[#c3cfc7]">
-            <div className="p-2  flex flex-col text-gray-700 font-semibold text-[2.2rem] min-w-[18rem]">
+            <div className="px-2 py-6  flex flex-col text-gray-700 font-semibold text-[2.2rem] min-w-[18rem]">
               <div className="flex gap-2">
-                <div>{today.slice(0, 5)}</div>
+                {/* <div>{today.slice(0, 5)}</div> */}
                 <div>{today.slice(6, 9)}</div>
                 <div>{today.slice(10, 13)}</div>
+                <div className="">{today.slice(14)}</div>
               </div>
-              <div className="">{today.slice(14)}</div>
             </div>
             {/* <div className="border-t-4 border-[#c3cfc7] min-h-16 text-4xl p-2">
               일어난 시간

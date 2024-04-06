@@ -29,7 +29,7 @@ export default function SignIn(): React.ReactElement {
   return (
     <div
       className="w-full lg:w-[34rem] p-12 flex flex-col justify-center items-center"
-      style={{ height: `calc(100vh - 26rem)` }}
+      style={{ height: `calc(100vh - 20rem)` }}
     >
       {contextHolder}
       <div className="flex flex-col gap-6 w-full">
@@ -68,7 +68,7 @@ export default function SignIn(): React.ReactElement {
       </div>
 
       <Divider>
-        <div className=" text-gray-500 text-[1.8rem] lg:text-[0.75rem]">
+        <div className="py-2 text-gray-500 text-[1.8rem] lg:text-[0.75rem]">
           간편 로그인
         </div>
       </Divider>
@@ -107,7 +107,7 @@ export default function SignIn(): React.ReactElement {
               className="w-[2.4rem] lg:h-[1rem] lg:w-[1rem]"
             />
           }
-          className="flex justify-center items-center p-4 text-black text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem] rounded-2xl"
+          className="flex justify-center items-center p-4 text-gray-800 text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem] rounded-2xl"
           onClick={() => {
             // navigate('/')
             window.location.href = googleConfig.authUrl
