@@ -44,32 +44,66 @@ export default function Diary(): React.ReactElement {
         weather,
         date: today
       }),
+    onError: () => {
+      messageApi.error({
+        icon: (
+          <div className="flex gap-2 p-2 items-center text-4xl font-semibold">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-[3rem] h-[3rem] lg:w-[2rem] lg:h-[2rem] text-[#d74242]"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
+            </svg>
+            죄송합니다.
+          </div>
+        ),
+        duration: 4,
+        content: (
+          <div className="text-3xl p-4">
+            <p>
+              사용자가 많아 오늘은 더 이상 일기를 제출 할 수
+              없습니다.
+            </p>
+            내일 다시 시도해주세요.
+          </div>
+        )
+      })
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: [user?.email]
       })
       messageApi.success({
         icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-[3rem] h-[3rem] lg:w-[2rem] lg:h-[2rem] text-[#30b248]"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-            />
-          </svg>
-        ),
-        content: (
-          <div className="text-3xl">
-            일기가 성공적으로 제출되었어요!
+          <div className="flex gap-2 p-2 items-center text-4xl font-semibold">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-[3rem] h-[3rem] lg:w-[2rem] lg:h-[2rem] text-[#30b248]"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
+            </svg>
+            <div className="text-3xl">
+              일기가 성공적으로 제출되었어요!
+            </div>
           </div>
-        )
+        ),
+        content: <></>
       })
       setTimeout(() => {
         navigate('/')
