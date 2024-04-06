@@ -67,7 +67,7 @@ export default function HistoryList({ input }: Props) {
                     {v[0].replace('_', ' ')}
                   </div>
                 </Divider>
-                <div className="grid grid-cols-1 gap-8 ">
+                <div className="grid grid-cols-1 gap-4 ">
                   {v[1]?.map((v, index) => (
                     <HistoryCard
                       loading={isLoading}

@@ -17,7 +17,7 @@ export default function Header() {
       <Button
         type="link"
         onClick={() => navigate('/')}
-        className=" text-5xl p-8 font-extrabold text-gray-100 flex justify-center items-center"
+        className=" text-5xl p-9 font-extrabold text-gray-100 flex justify-center items-center"
       >
         DIARY
       </Button>

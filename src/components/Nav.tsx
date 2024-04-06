@@ -10,14 +10,14 @@ export default function Navigation(): React.ReactElement {
   const navigate = useNavigate()
   const user = getLocalStorage('user') as User
 
-  // if (!user) return <></>
+  if (!user) return <></>
 
-  // if (pathname === '/login' || pathname === '/pending')
-  //   return <></>
+  if (pathname === '/login' || pathname === '/pending')
+    return <></>
 
   return (
     <>
-      <div className="fixed inset-x-0 bottom-0 h-[8rem] lg:h-[4rem] pb-safe bg-white shadow-md flex justify-around items-center z-10  border-t-2 rounded-t-3xl">
+      <div className="fixed inset-x-0 bottom-0 h-[8rem] lg:h-[4rem] pb-safe bg-white shadow-md flex justify-around items-center z-[100]  border-t-2 rounded-t-3xl">
         <div className="flex w-full justify-around">
           <Button
             className="h-full p-2"
