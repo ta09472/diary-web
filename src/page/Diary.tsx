@@ -8,7 +8,10 @@ import Weather, {
 import { useRef, useState } from 'react'
 import TextInput from '../components/TextInput'
 import { Button, Drawer, Space, message } from 'antd'
-import { useMutation } from '@tanstack/react-query'
+import {
+  useMutation,
+  useQueryClient
+} from '@tanstack/react-query'
 import instance from '../lib/axios'
 import { getLocalStorage } from '../util/localStorage'
 import { User } from '../schema/User'
@@ -29,7 +32,8 @@ export default function Diary(): React.ReactElement {
     weatherOptions[0].value
   )
   const [open, setOpen] = useState(false)
-
+  // react-query 클라이언트 인스턴스를 가져옵니다.
+  const queryClient = useQueryClient()
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async () =>
       await instance.post('/chatgpt', {
@@ -42,11 +46,32 @@ export default function Diary(): React.ReactElement {
         date: today
       }),
     onSuccess: () => {
-      messageApi.success(
-        <div className="text-3xl">
-          일기가 성공적으로 제출되었어요!
-        </div>
-      )
+      queryClient.invalidateQueries({
+        queryKey: [user?.email]
+      })
+      messageApi.success({
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-[3rem] h-[3rem] lg:w-[2rem] lg:h-[2rem] text-[#30b248]"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+        ),
+        content: (
+          <div className="text-3xl">
+            일기가 성공적으로 제출되었어요!
+          </div>
+        )
+      })
       setTimeout(() => {
         navigate('/')
       }, 1000)
