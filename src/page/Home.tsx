@@ -9,9 +9,9 @@ export default function Diary(): React.ReactElement {
     setInput(value)
   }
   return (
-    <div className=" flex flex-col p-8 gap-4">
+    <div className=" flex flex-col p-8 gap-4 overflow-hidden">
       <SearchBar input={input} onChange={onChange} />
-      <div className=" overflow-scroll max-h-[70rem]">
+      <div className=" overflow-scroll max-h-[74rem] py-4">
         <HistoryList input={input} />
       </div>
     </div>
