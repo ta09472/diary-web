@@ -15,12 +15,16 @@ interface Props {
   textareaRef: React.RefObject<HTMLTextAreaElement>
   weather: string
   date: string
+  input: string
+  onChange: (e: string) => void
 }
 
 export default function TextInput({
   textareaRef,
   weather,
-  date
+  date,
+  input,
+  onChange
 }: Props): React.ReactElement {
   const user = getLocalStorage('user') as User
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -29,7 +33,6 @@ export default function TextInput({
   >(null)
   const navigate = useNavigate()
 
-  const [modal, contextHolder] = Modal.useModal()
   const [messageApi, messageContextHolder] =
     message.useMessage()
 
@@ -138,13 +141,15 @@ export default function TextInput({
         placeholder={`${user?.givenName ?? ''}야! 오늘 너의 하루는 어땠니?`}
         onKeyDown={(e) => handleKeyDown(e)}
         ref={textareaRef}
+        value={input}
+        onChange={(e) => onChange(e.currentTarget.value)}
         rows={8}
         style={{
           resize: 'none'
         }}
       />
       <audio ref={audioRef} src={audio} />
-      {contextHolder}
+
       {messageContextHolder}
     </>
   )

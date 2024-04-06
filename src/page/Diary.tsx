@@ -32,14 +32,13 @@ export default function Diary(): React.ReactElement {
     weatherOptions[0].value
   )
   const [open, setOpen] = useState(false)
-  // react-query 클라이언트 인스턴스를 가져옵니다.
+  const [input, setInput] = useState('')
+
   const queryClient = useQueryClient()
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async () =>
       await instance.post('/chatgpt', {
-        message:
-          textareaRef?.current?.resizableTextArea?.textArea
-            .value,
+        message: input,
         name: user?.givenName,
         email: user?.email,
         weather,
@@ -121,15 +120,18 @@ export default function Diary(): React.ReactElement {
             textareaRef={textareaRef}
             weather={weather}
             date={today}
+            input={input}
+            onChange={setInput}
           />
         </div>
       </div>
       <Button
         className="text-[2.4rem] h-[7rem] lg:text-[1.8rem] lg:h-[4rem] text-gray-100 font-semibold rounded-2xl bg-[#84a68a]"
         block
+        disabled={input.length === 0}
         onClick={() => setOpen(true)}
       >
-        일기 제출
+        제출
       </Button>
       <Drawer
         className=" rounded-t-xl"

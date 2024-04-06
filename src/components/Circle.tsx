@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import React from 'react'
 
 const variants = [
   'M95.4594 89.8025C68.3172 89.8025 18.8399 94.8532 5.3509 64.2435C-6.79332 36.6855 16.3319 16.2515 40.4293 7.51817C51.4966 3.5072 64.5484 3.811 76.0946 3.01927C88.6419 2.15888 103.809 -0.31614 115.998 4.3885C131.191 10.2526 132.715 20.5603 133.602 35.294C134.203 45.2688 135.331 57.0811 132.298 66.8516C130.476 72.7242 120.949 83.5125 115.411 86.2816',
@@ -27,7 +28,7 @@ interface Props {
   isAnimating: boolean
 }
 
-function Circle({
+const Memo = React.memo(function Circle({
   isAnimating
 }: Props): React.ReactElement {
   return (
@@ -52,6 +53,5 @@ function Circle({
       )}
     </svg>
   )
-}
-
-export default Circle
+})
+export default Memo
