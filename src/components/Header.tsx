@@ -13,7 +13,12 @@ export default function Header() {
   // if (pathname === '/login' || pathname === '/pending')
   //   return <></>
   return (
-    <div className=" sticky top-0 inset-x-0 w-full h-[8rem] flex justify-between items-center bg-[#84a68a] rounded-b-2xl">
+    <div
+      className=" sticky top-0 inset-x-0 w-full h-[8rem] flex justify-between items-center bg-[#84a68a] rounded-b-2xl"
+      style={{
+        zIndex: 1000
+      }}
+    >
       <Button
         type="link"
         onClick={() => navigate('/')}
