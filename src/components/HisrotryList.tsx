@@ -13,6 +13,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Button, Divider, Empty, Spin } from 'antd'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import parseHistoryData from '../util/parseStringToJson'
 
 interface Props {
   input: string
@@ -41,12 +42,10 @@ export default function HistoryList({ input }: Props) {
       })
   })
 
-  const history: Diary[] =
-    JSON.parse(data?.data?.res ?? '{}').history ?? []
+  const history: Diary[] = parseHistoryData(
+    data?.data?.history
+  )
 
-  console.log(data)
-  console.log(JSON.parse(data?.data?.res ?? '{}'))
-  console.log(history)
   const historyWithState =
     value === 'lately' ? history : [...history].reverse()
   const groupedData = groupByMonth(historyWithState)
