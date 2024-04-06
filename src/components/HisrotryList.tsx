@@ -44,6 +44,7 @@ export default function HistoryList({ input }: Props) {
   const history: Diary[] =
     JSON.parse(data?.data?.res ?? '{}').history ?? []
 
+  console.log(data)
   console.log(JSON.parse(data?.data?.res ?? '{}'))
   console.log(history)
   const historyWithState =
