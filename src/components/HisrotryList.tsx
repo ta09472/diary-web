@@ -42,9 +42,7 @@ export default function HistoryList({ input }: Props) {
       })
   })
 
-  const history: Diary[] = parseHistoryData(
-    data?.data?.history
-  )
+  const history: Diary[] = parseHistoryData(data?.data?.res)
 
   const historyWithState =
     value === 'lately' ? history : [...history].reverse()
