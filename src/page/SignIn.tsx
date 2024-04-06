@@ -29,7 +29,7 @@ export default function SignIn(): React.ReactElement {
   return (
     <div
       className="w-full lg:w-[34rem] p-12 flex flex-col justify-center items-center"
-      style={{ height: `calc(100vh - 30rem)` }}
+      style={{ height: `calc(100vh - 26rem)` }}
     >
       {contextHolder}
       <div className="flex flex-col gap-6 w-full">

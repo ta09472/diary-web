@@ -32,10 +32,10 @@ function Circle({
 }: Props): React.ReactElement {
   return (
     <svg
-      width="100"
-      height="100"
-      viewBox="0 0 200 200"
-      className=" absolute z-0 top-1"
+      width="150"
+      height="200"
+      viewBox="0 0 200 250"
+      className=" absolute z-0 top-0"
     >
       {!isAnimating ? null : (
         <motion.path
@@ -44,7 +44,7 @@ function Circle({
           )}
           fill="none"
           stroke="#414241"
-          strokeWidth="2"
+          strokeWidth="3"
           variants={pathVariants}
           initial="hidden"
           animate={isAnimating ? 'show' : 'hidden'}

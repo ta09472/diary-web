@@ -11,7 +11,7 @@ export const weatherOptions = [
     label: (
       <img
         src={ClearDay}
-        className="w-16 h-16 flex justify-center items-center align-middle"
+        className="w-[6rem] h-[6rem] flex justify-center items-center align-middle"
       />
     ),
     value: 'clear',
@@ -21,7 +21,7 @@ export const weatherOptions = [
     label: (
       <img
         src={PartlyDay}
-        className="w-16 h-16 flex justify-center items-center align-middle"
+        className="w-[6rem] h-[6rem] flex justify-center items-center align-middle"
       />
     ),
     value: 'partly',
@@ -31,7 +31,7 @@ export const weatherOptions = [
     label: (
       <img
         src={CloudyDay}
-        className="w-16 h-16 flex justify-center items-center align-middle"
+        className="w-[6rem] h-[6rem] flex justify-center items-center align-middle"
       />
     ),
     value: 'cloudy',
@@ -41,7 +41,7 @@ export const weatherOptions = [
     label: (
       <img
         src={RainyDay}
-        className="w-16 h-16 flex justify-center items-center align-middle"
+        className="w-[6rem] h-[6rem] flex justify-center items-center align-middle"
       />
     ),
     value: 'rainy',
@@ -51,7 +51,7 @@ export const weatherOptions = [
     label: (
       <img
         src={SnowyDay}
-        className="w-16 h-16 flex justify-center items-center align-middle"
+        className="w-[6rem] h-[6rem] flex justify-center items-center align-middle"
       />
     ),
     value: 'snowy',
@@ -79,7 +79,7 @@ export default function Weather({
   }
 
   return (
-    <div className="gap-4 px-2 min-h-[6rem] flex justify-evenly items-center">
+    <div className="gap-4 px-2 py-1 min-h-[6rem] flex justify-between items-center">
       {weatherOptions.map(({ value, label }) => (
         <WeatherButton
           key={value}
