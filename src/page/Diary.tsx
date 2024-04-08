@@ -184,7 +184,10 @@ export default function Diary(): React.ReactElement {
             <Button
               loading={isPending}
               disabled={isPending}
-              onClick={async () => await mutateAsync()}
+              onClick={async () => {
+                if (isPending) return
+                await mutateAsync()
+              }}
               className="bg-[#84a68a] text-gray-100 text-4xl font-semibold flex justify-center items-center  px-[5.4rem] py-[3rem]"
             >
               네

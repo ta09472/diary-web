@@ -24,6 +24,7 @@ export default function SignIn(): React.ReactElement {
       description: '잠시 후에 다시 시도해 주세요.'
     })
   }
+
   const navigate = useNavigate()
 
   return (
@@ -125,6 +126,9 @@ export default function SignIn(): React.ReactElement {
           src={school}
           className="w-[20rem] lg:w-[12rem]"
         />
+      </div>
+      <div className="mt-[4rem] text-[1.5rem]">
+        *현재 개발중인 beta 버전입니다.
       </div>
     </div>
   )
