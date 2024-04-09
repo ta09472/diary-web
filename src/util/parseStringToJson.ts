@@ -11,16 +11,11 @@ export default function parseHistoryData(
     if (Array.isArray(parsedData.history)) {
       return parsedData.history
     } else {
-      console.warn(
-        'history가 예상한 형식의 배열이 아닙니다.'
-      )
+      console.warn('unexpected data type')
       return [] // 예상한 형식이 아니면 빈 배열을 반환합니다.
     }
   } catch (error) {
-    console.error(
-      'JSON 파싱 중 오류가 발생했습니다:',
-      error
-    )
+    console.error('JSON parse error', error)
     return [] // 파싱 중 오류가 발생하면 빈 배열을 반환합니다.
   }
 }
