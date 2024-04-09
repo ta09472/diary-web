@@ -8,6 +8,7 @@ import Profile from './page/Profile'
 import Diary from './page/Diary'
 import ProtectedRoute from './components/ProtectedRoute'
 import Header from './components/Header'
+import NotFound from './page/NotFound'
 
 function App(): JSX.Element {
   // 로그인 검증해서 로그인 페이지로 리다이렉션
@@ -15,7 +16,9 @@ function App(): JSX.Element {
   return (
     <div className=" lg:h-min-[100vh] lg:w-min-[100vw] flex flex-col lg:justify-center lg:items-center">
       <Header />
+
       <Routes>
+        <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<SignIn />} />
         <Route path="/pending" element={<LoginPending />} />
         <Route
