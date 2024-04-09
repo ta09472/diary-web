@@ -121,7 +121,7 @@ export default function Diary(): React.ReactElement {
         {/* <div className="grid grid-cols-2"> */}
         <div className="flex items-center justify-evenly">
           <div className="border-r-[0.2rem] border-[#c3cfc7]">
-            <div className="px-2 py-2  flex flex-col text-gray-700 text-[2.2rem] font-semibold min-w-[18rem]">
+            <div className="px-2 py-2  flex flex-col text-gray-700 text-[2.4rem] font-semibold min-w-[18rem]">
               <div className="flex gap-2">
                 <div>{today.slice(0, 5)}</div>
                 <div>{today.slice(6, 9)}</div>

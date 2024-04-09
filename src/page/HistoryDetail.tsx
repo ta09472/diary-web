@@ -71,7 +71,7 @@ export default function HistoryDetail(): React.ReactElement {
 
           <div className="flex flex-col border-t-4 border-[#c3cfc7] max-h-[50rem]">
             <div className="overflow-y-scroll min-h-[20rem]">
-              <p className=" p-4 text-4xl w-full  text-gray-700 tracking-wide leading-relaxed">
+              <p className=" p-4 text-5xl w-full  text-gray-700 tracking-wide leading-relaxed">
                 {data.value}
               </p>
             </div>
