@@ -108,7 +108,7 @@ export default function SignIn(): React.ReactElement {
               className="w-[2.4rem] lg:h-[1rem] lg:w-[1rem]"
             />
           }
-          className="flex justify-center items-center p-4 text-gray-800 text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem] rounded-2xl"
+          className="flex justify-center items-center p-4 text-gray-800 text-[2.2rem] h-[6rem] lg:h-[1rem] lg:text-[1rem] rounded-2xl lg:rounded-lg"
           onClick={() => {
             // navigate('/')
             window.location.href = googleConfig.authUrl
@@ -127,7 +127,7 @@ export default function SignIn(): React.ReactElement {
           className="w-[20rem] lg:w-[12rem]"
         />
       </div>
-      <div className="mt-[4rem] text-[1.5rem]">
+      <div className="mt-[4rem] text-[1.5rem] font-sans">
         *현재 개발중인 beta 버전입니다.
       </div>
     </div>
