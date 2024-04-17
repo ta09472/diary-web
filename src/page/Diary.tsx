@@ -113,11 +113,11 @@ export default function Diary(): React.ReactElement {
 
   return (
     <div
-      className="m-10 mt-[8rem] flex flex-col  gap-6"
+      className="m-10 mt-[8rem] lg:mt-10 flex flex-col  gap-6"
       style={{ height: `calc(100vh - 34rem)` }}
     >
       {messageContextHolder}
-      <div className="border-4 border-[#c3cfc7] w-full h-[56rem] rounded-xl ">
+      <div className="border-4 border-[#c3cfc7] w-full h-[56rem] lg:h-[41rem] rounded-xl ">
         {/* <div className="grid grid-cols-2"> */}
         <div className="flex items-center justify-evenly">
           <div className="border-r-[0.2rem] border-[#c3cfc7]">
@@ -160,7 +160,7 @@ export default function Diary(): React.ReactElement {
         </div>
       </div>
       <Button
-        className="text-[2.4rem] h-[7rem] lg:text-[1.8rem] lg:h-[4rem] text-gray-100 font-semibold rounded-2xl bg-[#84a68a]"
+        className="text-[2.4rem] h-[7rem] lg:text-[1.8rem] lg:h-[4rem] text-gray-100 font-semibold rounded-2xl bg-[#84a68a] lg:rounded-xl"
         block
         disabled={input.length === 0}
         onClick={() => setOpen(true)}
