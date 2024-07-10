@@ -1,35 +1,49 @@
-# diary
+## 개요: 과거 초등학교 시절에 일기를 쓰던 기억에 대한 향수를 불러 일으켜 일기를 쓸 수 있도록 장려하는 애플리케이션
 
-An Electron application with React and TypeScript
+[데모 링크]https://www.oneul-eun.com/
+## 주요 기능:
 
-## Recommended IDE Setup
+완료되지 않은 항목 | 완료된 항목
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- 사용자는 회원가입을 통해서 개인 계정을 가질 수 있다.
+    - OAuth2.0을 통해 회원가입 및 로그인 기능을 제공한다.
+- 사용자는 개인의 기록을 데이터베이스에 저장할 수 있다.
+    - 사용자는 개인 기록을 언제든지 열람이 가능해야 한다.
+    - 다른 사용자의 일기들을 열람할 수 있다.
+- 사용자의 행동에 따라 리워드를 제공한다.
+    - 매일 일기 작성, 첫 일기 작성 등등
+    - 리워드를 통해 일기장을 꾸미는 기능도 향후 추가할 예정
+- 사용자는 매일 3~5줄의 일기를 쓸 수 있다.
+    - 향후 그림을 그리는 그림일기의 형태의 기능도 제공할 예정
+- 사용자는 제출한 일기에 대해서 피드백을 받을 수 있다.
+    - 제출 대상자는 OpenAI ChatGPT4.0이다.
+    - 일반적으로 제출 이후 피드백을 받을 수 있는 시점은 빠르지 않아도 된다. 오히려 12시간 이상의 텀이 존재하는것이 몰입감을 줄 수 있을 것이라 생각된다.
+    - 가상의 선생님이 된 AI 이하 (OpenAI ChatGPT4.0)는 제출받은 일기에 대해서 짧은 감상문과 함께 확인 도장을 찍어준다.
+    - 가상의 선생님은 최대한 현실의 초등학교 선생님(2000~2010년대)의 말투를 사용해야 한다.
+    - 이질감이 없도록 사용자가 일기를 작성한 시점의 상황을 이해하고 있어야 한다.
+    - 피드백은 평가가 아닌 사용자와 상호작용한다는 느낌을 받을 수 있도록 한다.
 
-## Project Setup
+## 시나리오
 
-### Install
+1. 사용자는 애플리케이션에 접속한다.
+2. 로그인 및 회원가입이 완료 되었다면 일기를 작성할 수 있도록 한다.
+3. 메인화면에서는 이하의 기능들을 사용할 수 있다.
+    1. 일기 작성을 할 수 있는 메인페이지.
+    2. 이전의 기록을 열람할 수 있는 기록페이지.
+    3. 리워드를 사용해 일기를 꾸밀 수 있는 상점 페이지.
+    4. 설정 및 로그아웃
+    
 
-```bash
-$ npm install
-```
+## 기술 스택
 
-### Development
-
-```bash
-$ npm run dev
-```
-
-### Build
-
-```bash
-# For windows
-$ npm run build:win
-
-# For macOS
-$ npm run build:mac
-
-# For Linux
-$ npm run build:linux
-```
-# diary-web
+- 프론트엔드
+    - typescript
+    - react
+    - tailwindcss
+    - antd
+- 서버
+    - node.js
+    - hono.js
+    - cloudflare workers
+    - cloudfalre KV
+    - Oauth2.0
