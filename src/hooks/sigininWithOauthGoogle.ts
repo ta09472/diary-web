@@ -1,5 +1,6 @@
 const config = {
-  client_id: import.meta.env.GOOGLE_API_URL,
+  client_id:
+    '237546441940-bpg8k8a5lmkuid5pv3vgcd5nutvp5obo.apps.googleusercontent.com',
   // redirect_uri: 'http://localhost:8787/login/google',
   redirect_uri:
     'https://diary-server.ta09472.workers.dev/login/google',
