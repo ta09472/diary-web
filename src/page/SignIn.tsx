@@ -127,9 +127,6 @@ export default function SignIn(): React.ReactElement {
           className="w-[20rem] lg:w-[12rem]"
         />
       </div>
-      <div className="mt-[4rem] text-[1.5rem] font-sans">
-        *현재 개발중인 beta 버전입니다.
-      </div>
     </div>
   )
 }
