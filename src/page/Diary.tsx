@@ -37,7 +37,7 @@ export default function Diary(): React.ReactElement {
   const queryClient = useQueryClient()
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async () =>
-      await instance.post('/chatgpt', {
+      await instance.post('/chatgptmain', {
         message: input,
         name: user?.givenName,
         email: user?.email,
